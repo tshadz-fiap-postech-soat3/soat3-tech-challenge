@@ -1,25 +1,50 @@
-import { Injectable } from '@nestjs/common';
-import { ICategoriesRepository } from 'src/@core/application/ports/icategory.repository';
-import { Category } from 'src/@core/domain/entities/category';
+import { Inject, Injectable } from '@nestjs/common';
+import { ICategoriesRepository } from '../../../../@core/ports/icategory.repository';
 import { PrismaService } from '../database/prisma.service';
+import { CreateCategoryDto } from '../../../../@core/domain/dto/create-category.dto';
+import { UpdateCategoryDto } from '../../../../@core/domain/dto/update-category.dto';
+import { Category } from '@prisma/client';
+import { CategoryEntity } from '../../../../@core/domain/entities/category';
 
 @Injectable()
 export class PrismaCategoriesRepository implements ICategoriesRepository {
     constructor(private prisma: PrismaService) {}
 
-    async insert(category: Category): Promise<void>{
-
+    async insert(category: CreateCategoryDto): Promise<void>{
+        await this.prisma.category.create({
+            data: category
+        })
     }
 
-    async update(category: Category): Promise<void>{
-
+    async update(category: UpdateCategoryDto): Promise<void>{
+        await this.prisma.category.update({
+            data: category,
+            where: {
+                id: category.id
+            }
+        })
     }
 
-    async findById(id: string): Promise<Category>{
-        return new Category("123", "test")
+    async findById(id: string): Promise<CategoryEntity>{
+        const result = await this.prisma.category.findFirstOrThrow({
+            where: {
+                id: id
+            }
+        })
+        return result;
+    }
+
+    async findAll(): Promise<CategoryEntity[]>{
+        const result = await this.prisma.category.findMany()
+        return result;
     }
 
     async delete(id: string): Promise<void>{
+        await this.prisma.category.delete({
+            where: {
+                id: id
+            }
+        })
 
     }
 }

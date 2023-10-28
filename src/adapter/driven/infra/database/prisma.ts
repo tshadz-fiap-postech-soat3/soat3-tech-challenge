@@ -8,11 +8,9 @@ const config = {
     dbPort: 3306,
     // dbPort: configService.get<string>('MYSQL_PORT'),
     dbType: 'mysql',
-    dbUser: configService.get<string>('MYSQL_USER') ?? 'admin',
+    dbUser: configService.get<string>('MYSQL_USER') ?? 'root',
 };
 
 export const url = `mysql://${config.dbUser}:${config.dbPassword}@${config.dbHost}:${config.dbPort}/${config.dbName}?connect_timeout=300`;
 
 process.env.DATABASE_URL = url;
-
-console.log(process.env.DATABASE_URL)

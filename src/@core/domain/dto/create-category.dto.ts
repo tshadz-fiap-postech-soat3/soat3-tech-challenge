@@ -1,3 +1,3 @@
-import { Category } from "../entities/category";
+import { CategoryEntity } from "../entities/category";
 
-export class CreateCategoryDto extends Category {}
+export class CreateCategoryDto extends CategoryEntity {}

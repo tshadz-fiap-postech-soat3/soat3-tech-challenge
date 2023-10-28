@@ -1,5 +1,4 @@
 import { Injectable, OnModuleInit, Logger } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { PrismaClient } from '@prisma/client';
 import { url } from './prisma';
 
@@ -7,7 +6,7 @@ import { url } from './prisma';
 export class PrismaService extends PrismaClient implements OnModuleInit {
   private readonly logger = new Logger(PrismaClient.name);
 
-  public constructor(private configService: ConfigService) {
+  public constructor() {
     super({
       datasources: {
         db: {

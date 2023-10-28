@@ -1,8 +1,8 @@
-export class Category {
+export class CategoryEntity {
     id: string
     name: string
-    created_at: Date
-    updated_at: Date
+    createdAtDate: Date
+    updatedAtDate: Date
 
     constructor(
         id: string, 
@@ -10,5 +10,7 @@ export class Category {
         ) {
             this.id = id;
             this.name = name;
+            this.createdAtDate = new Date();
+            this.updatedAtDate = new Date();
         }
 }
