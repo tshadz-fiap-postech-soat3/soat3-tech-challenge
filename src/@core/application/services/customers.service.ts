@@ -11,7 +11,7 @@ export class CustomersService {
   ) {}
 
   async create(createCustomerDto: CreateCustomerDto) {
-    return await this.customersRepository.insert(createCustomerDto)
+    return await this.customersRepository.insert(createCustomerDto);
   }
 
   async findAll() {

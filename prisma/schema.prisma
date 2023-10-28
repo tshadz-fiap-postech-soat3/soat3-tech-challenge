@@ -14,6 +14,7 @@ model Customer {
   id   String @id @default(uuid())
   cpf  String @unique
   name String
+  Order Order[]
 }
 
 model Category {
@@ -31,4 +32,23 @@ model Product {
   category    Category @relation(fields: [categoryId], references: [id])
   categoryId  String
   price       Int
+  OrdemItems  OrdemItems[]
+}
+
+model Order {
+  id          String   @id @default(uuid())
+  customer    Customer  @relation(fields: [customerId], references: [id])
+  customerId  String
+  status      String
+  price       Int
+  OrdemItems  OrdemItems[]
+}
+
+model OrdemItems {
+  id         String   @id @default(uuid())
+  order      Order    @relation(fields: [orderId], references: [id])
+  orderId    String
+  product    Product  @relation(fields: [productId], references: [id])
+  productId  String
+  quantity   Int
 }
