@@ -1,5 +1,4 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CategoryEntity } from '../../domain/entities/category';
 import { CreateCategoryDto } from '../../domain/dto/create-category.dto';
 import { UpdateCategoryDto } from '../../domain/dto/update-category.dto';
 import { ICategoriesRepository } from '../../ports/icategory.repository';
@@ -24,7 +23,7 @@ export class CategoriesService {
   }
 
   async update(id: string, updateCategoryDto: UpdateCategoryDto) {
-    return `This action updates a #${id} category`;
+    return await this.categoriesRepository.update(id, updateCategoryDto)
   }
 
   async remove(id: string) {

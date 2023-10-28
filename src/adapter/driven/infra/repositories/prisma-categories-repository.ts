@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { ICategoriesRepository } from '../../../../@core/ports/icategory.repository';
 import { PrismaService } from '../database/prisma.service';
 import { CreateCategoryDto } from '../../../../@core/domain/dto/create-category.dto';
@@ -16,11 +16,11 @@ export class PrismaCategoriesRepository implements ICategoriesRepository {
         })
     }
 
-    async update(category: UpdateCategoryDto): Promise<void>{
+    async update(id: string, category: UpdateCategoryDto): Promise<void>{
         await this.prisma.category.update({
             data: category,
             where: {
-                id: category.id
+                id: id
             }
         })
     }

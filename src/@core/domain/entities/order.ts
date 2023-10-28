@@ -1,6 +1,6 @@
 export class Order {
     id: string
-    status: string
+    status: OrderStatus
     created_at: Date
     updated_at: Date
 
@@ -9,6 +9,16 @@ export class Order {
         status: string, 
         ) {
             this.id = id;
-            this.status = status;
+            this.status = OrderStatus.OPEN;
         }
+
+    isClosed(): boolean {
+        return this.status === OrderStatus.CLOSED;
+    }
+}
+
+enum OrderStatus {
+  OPEN = 'OPEN',
+  IN_PROGRESS = 'IN_PROGRESS',
+  CLOSED = 'CLOSED',
 }

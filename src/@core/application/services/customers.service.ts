@@ -1,0 +1,32 @@
+import { Inject, Injectable } from '@nestjs/common';
+import { CreateCustomerDto } from '../../domain/dto/create-customer.dto';
+import { UpdateCustomerDto } from '../../domain/dto/update-customer.dto';
+import { ICustomersRepository } from '../../ports/icustomer.repository';
+
+@Injectable()
+export class CustomersService {
+  constructor(
+    @Inject(ICustomersRepository)
+    private customersRepository: ICustomersRepository
+  ) {}
+
+  async create(createCustomerDto: CreateCustomerDto) {
+    return await this.customersRepository.insert(createCustomerDto)
+  }
+
+  async findAll() {
+    return await this.customersRepository.findAll();
+  }
+
+  async findOne(id: string) {
+    return await this.customersRepository.findById(id);
+  }
+
+  async update(id: string, updateCustomerDto: UpdateCustomerDto) {
+    return await this.customersRepository.update(id, updateCustomerDto);
+  }
+
+  async remove(id: string) {
+    return await this.customersRepository.delete(id);
+  }
+}
