@@ -1,6 +1,6 @@
 import { Module, NestModule } from '@nestjs/common';
 import { CustomersModule } from './modules/customers.module';
-import { ProductsModule } from './products/products.module';
+import { ProductsModule } from './modules/products.module';
 import { OrdersModule } from './orders/orders.module';
 import { DatabaseModule } from './adapter/driven/infra/database/database.module';
 import { ConfigModule } from '@nestjs/config';

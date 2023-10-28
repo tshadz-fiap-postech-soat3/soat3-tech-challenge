@@ -10,16 +10,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Customer {
-  id    String  @id
-  cpf   String  @unique
-  name  String
+  id   String @id @default(uuid())
+  cpf  String @unique
+  name String
 }
 
 model Category {
-  id            String @id
-  name          String @unique
+  id            String   @id @default(uuid())
+  name          String   @unique
   createdAtDate DateTime @default(now()) @db.Timestamp(6)
   updatedAtDate DateTime @default(now()) @db.Timestamp(6)
+  Product       Product[]
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String
+  category    Category @relation(fields: [categoryId], references: [id])
+  categoryId  String
+  price       Int
 }

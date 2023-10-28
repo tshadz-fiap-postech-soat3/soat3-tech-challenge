@@ -1,23 +1,21 @@
-export class Product {
+export class ProductEntity {
     id: string
     name: string
     description: string
-    category_id: string
+    categoryId: string
     price: number
-    created_at: Date
-    updated_at: Date
 
     constructor(
         id: string, 
         name: string, 
         description: string,
-        category_id: string,
+        categoryId: string,
         price: number
         ) {
             this.id = id;
             this.name = name;
             this.description = description;
-            this.category_id = category_id;
+            this.categoryId = categoryId;
             this.price = price
         }
 }

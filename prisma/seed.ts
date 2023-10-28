@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient()
 
 async function main() {
+    await prisma.product.deleteMany();
     await prisma.category.deleteMany();
     await prisma.customer.deleteMany();
 
@@ -25,7 +26,7 @@ async function main() {
                 name: 'Sobremesa'
             }
         ]
-    })
+    });
 
     await prisma.customer.createMany({
         data: [
@@ -43,6 +44,46 @@ async function main() {
                 id: 'cust-3',
                 name: 'Customer-3',
                 cpf: '12345678903'
+            },
+        ]
+    });
+
+    await prisma.product.createMany({
+        data: [
+            {
+                id: 'prod-1',
+                name: 'X-Burguer',
+                description: 'Pão, carne, queijo, alface, tomate e molho',
+                categoryId: 'cat-1',
+                price: 20,
+            },
+            {
+                id: 'prod-2',
+                name: 'X-Bacon',
+                description: 'Pão, carne, bacon, queijo, alface, tomate e molho',
+                categoryId: 'cat-1',
+                price: 30,
+            },
+            {
+                id: 'prod-3',
+                name: 'Pudim',
+                description: 'Pudim de leite ninho',
+                categoryId: 'cat-4',
+                price: 10,
+            },
+            {
+                id: 'prod-4',
+                name: 'Suco',
+                description: 'Suco natural 500 mL',
+                categoryId: 'cat-3',
+                price: 8,
+            },
+            {
+                id: 'prod-5',
+                name: 'Bata frita',
+                description: 'Porção generosa de batata frita',
+                categoryId: 'cat-2',
+                price: 10,
             },
         ]
     })
