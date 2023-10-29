@@ -1,6 +1,6 @@
 export class OrderEntity {
     id: string
-    status?: OrderStatus
+    status: OrderStatus
     customerId: string
     price: number
 

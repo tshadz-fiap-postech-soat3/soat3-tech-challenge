@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient()
 
 async function main() {
+    await prisma.orderItems.deleteMany();
     await prisma.product.deleteMany();
     await prisma.order.deleteMany();
     await prisma.category.deleteMany();
@@ -92,16 +93,39 @@ async function main() {
     await prisma.order.createMany({
         data: [
             {
-                id: 'prod-1',
-                customerId: 'cust-1',
+                id: 'order-1',
                 status: 'Aguardando Pagamento',
+                customerId: 'cust-1',
                 price: 100,
             },
             {
-                id: 'prod-1',
-                customerId: 'cust-2',
+                id: 'order-2',
                 status: 'Em Preparo',
+                customerId: 'cust-2',
                 price: 50,
+            },
+        ]
+    })
+
+    await prisma.orderItems.createMany({
+        data: [
+            {
+                id: 'order-item-1',
+                orderId: 'order-1',
+                productId: 'prod-1',
+                quantity: 2,
+            },
+            {
+                id: 'order-item-2',
+                orderId: 'order-1',
+                productId: 'prod-2',
+                quantity: 3,
+            },
+            {
+                id: 'order-item-3',
+                orderId: 'order-2',
+                productId: 'prod-3',
+                quantity: 5,
             },
         ]
     })

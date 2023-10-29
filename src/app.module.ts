@@ -5,7 +5,7 @@ import { OrdersModule } from './modules/orders.module';
 import { DatabaseModule } from './adapter/driven/infra/database/database.module';
 import { ConfigModule } from '@nestjs/config';
 import { CategoriesModule } from './modules/categories.module';
-import { OrderItemsModule } from './order-items/order-items.module';
+import { OrderItemsModule } from './modules/order-items.module';
 
 @Module({
   imports: [CustomersModule, CategoriesModule, ProductsModule, OrdersModule, DatabaseModule, ConfigModule.forRoot(), OrderItemsModule],
