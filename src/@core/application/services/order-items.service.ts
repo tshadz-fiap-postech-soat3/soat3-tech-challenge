@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IOrderItemsRepository } from 'src/@core/ports/iorder-items.repository';
+import { IOrderItemsRepository } from '../../ports/iorder-items.repository';
 import { CreateOrderItemDto } from '../../domain/dto/create-order-item.dto';
 import { UpdateOrderItemDto } from '../../domain/dto/update-order-item.dto';
 
