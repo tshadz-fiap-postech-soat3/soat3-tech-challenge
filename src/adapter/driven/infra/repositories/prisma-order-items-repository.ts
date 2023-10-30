@@ -24,10 +24,10 @@ export class PrismaOrderItemsRepository implements IOrderItemsRepository {
         })
     }
 
-    async findById(id: string): Promise<OrderItemEntity>{
-        const result = await this.prisma.orderItems.findUniqueOrThrow({
+    async findByOrderId(id: string): Promise<OrderItemEntity>{
+        const result = await this.prisma.orderItems.findMany({
             where: {
-                id: id
+                orderId: id
             }
         })
         return result as unknown as OrderItemEntity;

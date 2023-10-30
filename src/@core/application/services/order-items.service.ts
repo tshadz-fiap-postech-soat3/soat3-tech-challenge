@@ -19,7 +19,7 @@ export class OrderItemsService {
   }
 
   async findOne(id: string) {
-    return await this.orderItemsRepository.findById(id);
+    return await this.orderItemsRepository.findByOrderId(id);
   }
 
   async update(id: string, updateOrderItemDto: UpdateOrderItemDto) {
