@@ -47,7 +47,7 @@ MYSQL_PASSWORD = "admin"
 MYSQL_PORT = 3306
 
 # Iniciar o projeto
-$ docker compose -f "docker-compose.yml" up -d --build
+$ docker compose up -d --build
 
 # Para criar tabelas
 $ npx prisma migrate dev --name init
