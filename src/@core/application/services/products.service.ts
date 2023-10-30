@@ -18,8 +18,8 @@ export class ProductsService {
     return await this.productsRepository.findAll();
   }
 
-  async findOne(id: string) {
-    return await this.productsRepository.findById(id);
+  async findOne(category: string) {
+    return await this.productsRepository.findByCategory(category);
   }
 
   async update(id: string, updateProductDto: UpdateProductDto) {

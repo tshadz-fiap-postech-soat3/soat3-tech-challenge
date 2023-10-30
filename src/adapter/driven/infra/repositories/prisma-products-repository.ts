@@ -24,10 +24,10 @@ export class PrismaProductsRepository implements IProductsRepository {
         })
     }
 
-    async findById(id: string): Promise<ProductEntity>{
-        const result = await this.prisma.product.findUniqueOrThrow({
+    async findByCategory(category: string): Promise<ProductEntity>{
+        const result = await this.prisma.product.findFirstOrThrow({
             where: {
-                id: id
+                categoryId: category
             }
         })
         return result;
