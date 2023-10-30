@@ -18,8 +18,8 @@ export class CustomersService {
     return await this.customersRepository.findAll();
   }
 
-  async findOne(id: string) {
-    return await this.customersRepository.findById(id);
+  async findOne(cpf: string) {
+    return await this.customersRepository.findByCpf(cpf);
   }
 
   async update(id: string, updateCustomerDto: UpdateCustomerDto) {

@@ -25,10 +25,10 @@ export class PrismaCustomersRepository implements ICustomersRepository {
         })
     }
 
-    async findById(id: string): Promise<CustomerEntity>{
-        const result = await this.prisma.customer.findFirstOrThrow({
+    async findByCpf(cpf: string): Promise<CustomerEntity>{
+        const result = await this.prisma.customer.findUniqueOrThrow({
             where: {
-                id: id
+                cpf: cpf
             }
         })
         return result;

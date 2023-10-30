@@ -17,9 +17,9 @@ export class CustomersController {
     return await this.customersService.findAll();
   }
 
-  @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return await this.customersService.findOne(id);
+  @Get(':cpf')
+  async findOne(@Param('cpf') cpf: string) {
+    return await this.customersService.findOne(cpf);
   }
 
   @Patch(':id')

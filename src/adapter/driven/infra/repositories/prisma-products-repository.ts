@@ -25,7 +25,7 @@ export class PrismaProductsRepository implements IProductsRepository {
     }
 
     async findById(id: string): Promise<ProductEntity>{
-        const result = await this.prisma.product.findFirstOrThrow({
+        const result = await this.prisma.product.findUniqueOrThrow({
             where: {
                 id: id
             }

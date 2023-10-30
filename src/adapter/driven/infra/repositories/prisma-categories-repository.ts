@@ -26,7 +26,7 @@ export class PrismaCategoriesRepository implements ICategoriesRepository {
     }
 
     async findById(id: string): Promise<CategoryEntity>{
-        const result = await this.prisma.category.findFirstOrThrow({
+        const result = await this.prisma.category.findUniqueOrThrow({
             where: {
                 id: id
             }

@@ -25,7 +25,7 @@ export class PrismaOrderItemsRepository implements IOrderItemsRepository {
     }
 
     async findById(id: string): Promise<OrderItemEntity>{
-        const result = await this.prisma.orderItems.findFirstOrThrow({
+        const result = await this.prisma.orderItems.findUniqueOrThrow({
             where: {
                 id: id
             }
