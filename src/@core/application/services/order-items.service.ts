@@ -10,7 +10,7 @@ export class OrderItemsService {
     private orderItemsRepository: IOrderItemsRepository
   ) {}
 
-  async create(createOrderItemDto: CreateOrderItemDto) {
+  async create(createOrderItemDto: CreateOrderItemDto[]) {
     return await this.orderItemsRepository.insert(createOrderItemDto);
   }
 

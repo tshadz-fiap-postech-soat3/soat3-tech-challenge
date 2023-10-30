@@ -41,6 +41,8 @@ model Order {
   customerId String
   status     String
   price      Int
+  createdAtDate DateTime  @default(now()) @db.Timestamp(6)
+  updatedAtDate DateTime  @default(now()) @db.Timestamp(6)
   OrderItems OrderItems[]
 }
 

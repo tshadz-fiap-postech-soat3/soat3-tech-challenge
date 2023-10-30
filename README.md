@@ -52,9 +52,6 @@ $ docker compose up -d --build
 # Para criar tabelas
 $ npx prisma migrate dev --name init
 
-# Para popular as tabelas
-$ npm run seed
-
 # O servidor inciará na porta:8080 - acesse <http://localhost:8080>
 ```
 ## Test
@@ -63,11 +60,6 @@ $ npm run seed
 # unit tests
 $ npm run test
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
 ## Swagger

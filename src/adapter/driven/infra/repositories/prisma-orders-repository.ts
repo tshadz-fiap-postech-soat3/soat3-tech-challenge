@@ -3,7 +3,7 @@ import { IOrdersRepository } from '../../../../@core/ports/iorder.repository';
 import { PrismaService } from '../database/prisma.service';
 import { CreateOrderDto } from '../../../../@core/domain/dto/create-order.dto';
 import { UpdateOrderDto } from '../../../../@core/domain/dto/update-order.dto';
-import { OrderEntity } from '../../../../@core/domain/entities/order';
+import { OrderEntity, OrderStatus } from '../../../../@core/domain/entities/order';
 
 @Injectable()
 export class PrismaOrdersRepository implements IOrdersRepository {
@@ -35,6 +35,15 @@ export class PrismaOrdersRepository implements IOrdersRepository {
 
     async findAll(): Promise<OrderEntity[]>{
         const result = await this.prisma.order.findMany()
+        return result as unknown as OrderEntity[];
+    }
+
+    async findAllByStatus(status: OrderStatus): Promise<OrderEntity[]>{
+        const result = await this.prisma.order.findMany({
+            where: {
+                status: status
+            }
+        })
         return result as unknown as OrderEntity[];
     }
 

@@ -9,8 +9,8 @@ import { OrderItemEntity } from '../../../../@core/domain/entities/order-item';
 export class PrismaOrderItemsRepository implements IOrderItemsRepository {
     constructor(private prisma: PrismaService) {}
 
-    async insert(order: CreateOrderItemDto): Promise<void>{
-        await this.prisma.orderItems.create({
+    async insert(order: CreateOrderItemDto[]): Promise<void>{
+        await this.prisma.orderItems.createMany({
             data: order
         })
     }

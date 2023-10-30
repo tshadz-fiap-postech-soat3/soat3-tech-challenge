@@ -11,7 +11,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Fast Food')
-    .setDescription('')
+    .setDescription('Api to handle a fastfood service')
     .setVersion('1.0.0')
     .build();
 
