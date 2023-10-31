@@ -55,6 +55,8 @@ $ npx prisma migrate dev --name init
 
 # O servidor inciará na porta:8080 - acesse <http://localhost:8080>
 ```
+![dockerCompose](https://github.com/tshadz/soat3-tech-chalenge/assets/80704054/18828d04-7168-4559-8d33-02ac7e312971)
+
 ## Test
 
 ```bash
@@ -67,3 +69,5 @@ $ npm run test
 
 
 ### Após rodar o projeto, acesse http://localhost:8080/swagger
+![swagger](https://github.com/tshadz/soat3-tech-chalenge/assets/80704054/4b2a2743-116a-4eac-9e41-5503a90cd132)
+
