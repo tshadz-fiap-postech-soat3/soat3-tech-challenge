@@ -40,6 +40,7 @@ $ cd ./soat3-tech-chalenge
 
 # Crie um arquivo `.env` na pasta raíz do projeto com as suas informações:
 
+DATABASE_URL="mysql://root:admin@localhost:3306/fastfood"
 MYSQL_HOST = "localhost"
 MYSQL_DATABASE = "fastfood"
 MYSQL_USER = "root"
