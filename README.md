@@ -1,20 +1,10 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
 ## Description
 
 Tech Challenge - Software Architecture
 
 <p align="center">
-  <a href="#sobre">Sobre</a> &#xa0; | &#xa0; 
   <a href="#tecnologias">Tecnologias</a> &#xa0; | &#xa0;
   <a href="#running">Como rodar a aplicação</a> &#xa0; | &#xa0;
-  <a href="#observacoes">Observações</a> &#xa0; | &#xa0;
-  <a href="#desenvolvedores">Desenvolvedores</a>
 </p>
 
 <h2 id="tecnologias"> Tecnologias </h2>
@@ -59,7 +49,10 @@ $ npx prisma migrate dev --name init && npx ts-node prisma/seed.ts
 
 # O servidor inciará na porta:8080 - acesse <http://localhost:8080>
 ```
-![dockerCompose](https://github.com/tshadz/soat3-tech-chalenge/assets/80704054/18828d04-7168-4559-8d33-02ac7e312971)
+![docker compose up](https://github.com/tshadz/soat3-tech-chalenge/assets/80704054/7fa20867-2b2a-4bec-8ce2-02d886ce0897)
+
+![docker exec](https://github.com/tshadz/soat3-tech-chalenge/assets/80704054/5ae747af-2371-439c-9bcf-1408cb2f9a6b)
+
 
 ## Test
 
@@ -73,5 +66,4 @@ $ npm run test
 
 
 ### Após rodar o projeto, acesse http://localhost:8080/swagger
-![swagger](https://github.com/tshadz/soat3-tech-chalenge/assets/80704054/4b2a2743-116a-4eac-9e41-5503a90cd132)
-
+![swagger](https://github.com/tshadz/soat3-tech-chalenge/assets/80704054/f5ba4ca7-a7b4-4dc8-9d0c-3c3c2f7cd2c7)
