@@ -33,6 +33,7 @@ $ cd ./soat3-tech-chalenge
 DATABASE_URL=""
 MYSQL_HOST = "fast-food-db"
 MYSQL_ROOT_PASSWORD = "root"
+MYSQL_ROOT_USER = "root"
 MYSQL_DATABASE = "fastfood"
 MYSQL_USER = "user"
 MYSQL_PASSWORD = "user"

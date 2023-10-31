@@ -31,7 +31,6 @@ services:
   db:
     image: mysql:latest
     container_name: fast-food-db
-    command: --default-authentication-plugin=mysql_native_password
     restart: always
     tty: true
     env_file:
