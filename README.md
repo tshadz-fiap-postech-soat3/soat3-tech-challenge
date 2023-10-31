@@ -40,18 +40,22 @@ $ cd ./soat3-tech-chalenge
 
 # Crie um arquivo `.env` na pasta raíz do projeto com as suas informações:
 
-DATABASE_URL="mysql://root:admin@localhost:3306/fastfood"
-MYSQL_HOST = "localhost"
+DATABASE_URL=""
+MYSQL_HOST = "fast-food-db"
+MYSQL_ROOT_PASSWORD = "root"
 MYSQL_DATABASE = "fastfood"
-MYSQL_USER = "root"
-MYSQL_PASSWORD = "admin"
+MYSQL_USER = "user"
+MYSQL_PASSWORD = "user"
 MYSQL_PORT = 3306
 
 # Iniciar o projeto
 $ docker compose up -d --build
 
-# Para criar tabelas
-$ npx prisma migrate dev --name init
+# Acesse o container
+$ docker exec -it fast-food sh
+
+# Dentro do container rode as migrations
+$ npx prisma migrate dev --name init && npx ts-node prisma/seed.ts
 
 # O servidor inciará na porta:8080 - acesse <http://localhost:8080>
 ```
