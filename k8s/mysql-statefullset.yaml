@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: fast-food-db-sts
+spec:
+  selector:
+    matchLabels:
+      app: fast-food-db
+  serviceName: fast-food-db
+  template:
+    metadata:
+      labels:
+        app: fast-food-db
+    spec:
+      containers:
+      - name: fast-food-db
+        image: mysql/mysql-server:8.0
+        envFrom:
+          - configMapRef:
+              name: fast-food-db-config
+          - secretRef:
+              name: fast-food-db-secret
+        ports:
+        - containerPort: 3306
+          name: fast-food-db
+        volumeMounts:
+        - name: fast-food-db-pvc
+          mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+  - metadata:
+      name: fast-food-db-pvc
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi

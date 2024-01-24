@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fast-food-deployment
+  labels:
+    app: fast-food
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fast-food
+  template:
+    metadata:
+      labels:
+        app: fast-food
+    spec:
+      securityContext:
+        {}
+      containers:
+        - name: fast-food
+          image: fast-food-app
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: DATABASE_URL
+              value: mysql://root:root@lfast-food-db:3306/fastfood
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fast-food-db-secret
+                  key: MYSQL_PASSWORD
+          envFrom:
+            - configMapRef:
+                name: fast-food-config
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /swagger
+              port: 8080
+          readinessProbe:
+            httpGet:
+              path: /swagger
+              port: 8080
+          resources:
+            null
