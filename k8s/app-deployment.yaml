@@ -18,16 +18,8 @@ spec:
         {}
       containers:
         - name: fast-food
-          image: fast-food-app
+          image: tshadz/fast-food-app:1.0.1
           imagePullPolicy: IfNotPresent
-          env:
-            - name: DATABASE_URL
-              value: mysql://root:root@lfast-food-db:3306/fastfood
-            - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: fast-food-db-secret
-                  key: MYSQL_PASSWORD
           envFrom:
             - configMapRef:
                 name: fast-food-config
@@ -35,13 +27,13 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /swagger
-              port: 8080
-          readinessProbe:
-            httpGet:
-              path: /swagger
-              port: 8080
+          # livenessProbe:
+          #   httpGet:
+          #     path: /swagger
+          #     port: 8080
+          # readinessProbe:
+          #   httpGet:
+          #     path: /swagger
+          #     port: 8080
           resources:
             null

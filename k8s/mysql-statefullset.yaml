@@ -14,24 +14,35 @@ spec:
     spec:
       containers:
       - name: fast-food-db
-        image: mysql/mysql-server:8.0
-        envFrom:
-          - configMapRef:
-              name: fast-food-db-config
-          - secretRef:
-              name: fast-food-db-secret
+        image: mysql:latest
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: MYSQL_ROOT_PASSWORD
+                name: fast-food-db-secret
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: MYSQL_PASSWORD
+                name: fast-food-db-secret
+          - name: MYSQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                key: MYSQL_DATABASE
+                name: fast-food-db-secret
+          - name: MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                key: MYSQL_USER
+                name: fast-food-db-secret
         ports:
         - containerPort: 3306
           name: fast-food-db
-        volumeMounts:
-        - name: fast-food-db-pvc
-          mountPath: /var/lib/mysql
-  volumeClaimTemplates:
-  - metadata:
-      name: fast-food-db-pvc
-    spec:
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 1Gi
+      #   volumeMounts:
+      #   - name: fast-food-db-pvc
+      #     mountPath: /var/lib/mysql
+      # volumes:
+      #   - name: mysqldb-pvc-storage
+      #     persistentVolumeClaim:
+      #       claimName: mysqldb-pvc-claim

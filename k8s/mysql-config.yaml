@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: fast-food-db-config
-data:
-  MYSQL_DATABASE: "fast-food-db"
-  MYSQL_ROOT_HOST: "%"
-  MYSQL_USER: "fiap"

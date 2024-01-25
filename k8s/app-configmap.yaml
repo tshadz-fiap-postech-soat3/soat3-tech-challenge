@@ -4,9 +4,11 @@ metadata:
   namespace: default
   name: fast-food-config
 data:
-  DB_DATABASE: "fast-food-db"
-  DB_HOST: "root"
-  DB_PORT: "3306"
-  DB_USERNAME: "root"
-
-  https://github.com/tonysm/fiap-tech-challenge-1-pedidos/blob/main/docker-compose.yml
+  DATABASE_URL: "mysql://user:user@fast-food-db:3306/fastfood"
+  MYSQL_HOST: "fast-food-db"
+  MYSQL_ROOT_PASSWORD: "root"
+  MYSQL_DATABASE: "fastfood"
+  MYSQL_ROOT_USER: "root"
+  MYSQL_USER: "user"
+  MYSQL_PASSWORD: "user"
+  MYSQL_PORT: "3306"
