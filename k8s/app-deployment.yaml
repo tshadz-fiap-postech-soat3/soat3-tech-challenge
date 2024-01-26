@@ -23,17 +23,47 @@ spec:
           envFrom:
             - configMapRef:
                 name: fast-food-config
+          env:
+          - name: DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                key: DATABASE_URL
+                name: fast-food-db-secret
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: MYSQL_ROOT_PASSWORD
+                name: fast-food-db-secret
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: MYSQL_PASSWORD
+                name: fast-food-db-secret
+          - name: MYSQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                key: MYSQL_DATABASE
+                name: fast-food-db-secret
+          - name: MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                key: MYSQL_USER
+                name: fast-food-db-secret
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
-          # livenessProbe:
-          #   httpGet:
-          #     path: /swagger
-          #     port: 8080
-          # readinessProbe:
-          #   httpGet:
-          #     path: /swagger
-          #     port: 8080
+          livenessProbe:
+            httpGet:
+              path: /swagger
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /swagger
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 3
           resources:
             null

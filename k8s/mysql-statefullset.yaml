@@ -39,10 +39,15 @@ spec:
         ports:
         - containerPort: 3306
           name: fast-food-db
-      #   volumeMounts:
-      #   - name: fast-food-db-pvc
-      #     mountPath: /var/lib/mysql
-      # volumes:
-      #   - name: mysqldb-pvc-storage
-      #     persistentVolumeClaim:
-      #       claimName: mysqldb-pvc-claim
+        volumeMounts:
+        - name: fast-food-db-pvc
+          mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+    - metadata:
+        name: fast-food-db-pvc
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
