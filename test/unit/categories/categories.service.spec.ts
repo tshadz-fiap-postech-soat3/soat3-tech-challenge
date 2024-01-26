@@ -10,19 +10,22 @@ describe('CategoriesService', () => {
   let prisma: PrismaService;
 
   const categoryMockedData: CreateCategoryDto = {
-    id: "test",
-    name: "test",
+    id: 'test',
+    name: 'test',
     createdAtDate: new Date(),
-    updatedAtDate: new Date()
-  }
+    updatedAtDate: new Date(),
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [ CategoriesService,
+      providers: [
+        CategoriesService,
         {
           provide: ICategoriesRepository,
           useClass: PrismaCategoriesRepository,
-        }, PrismaService],
+        },
+        PrismaService,
+      ],
     }).compile();
 
     service = module.get<CategoriesService>(CategoriesService);
@@ -38,17 +41,15 @@ describe('CategoriesService', () => {
   });
 
   describe('findAll', () => {
-
-    it('should return an array of users', async() => {
-
-      prisma.category.findMany = jest.fn().mockReturnValue([categoryMockedData]);
+    it('should return an array of users', async () => {
+      prisma.category.findMany = jest
+        .fn()
+        .mockReturnValue([categoryMockedData]);
 
       const result = await service.findAll();
 
       expect(result).toEqual([categoryMockedData]);
       expect(prisma.category.findMany).toHaveBeenCalledTimes(1);
-    })
-
+    });
   });
-
 });

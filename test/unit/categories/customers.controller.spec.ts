@@ -17,7 +17,7 @@ describe('CustomersController', () => {
           provide: ICustomersRepository,
           useClass: PrismaCustomersRepository,
         },
-        PrismaService
+        PrismaService,
       ],
     }).compile();
 

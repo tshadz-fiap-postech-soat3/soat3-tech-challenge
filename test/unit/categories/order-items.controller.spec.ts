@@ -15,9 +15,9 @@ describe('OrderItemsController', () => {
         OrderItemsService,
         {
           provide: IOrderItemsRepository,
-          useClass: PrismaOrderItemsRepository
+          useClass: PrismaOrderItemsRepository,
         },
-        PrismaService
+        PrismaService,
       ],
     }).compile();
 

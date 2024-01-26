@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const prismaService = app.get(PrismaService);
 
-  app.enableCors()
+  app.enableCors();
 
   const config = new DocumentBuilder()
     .setTitle('Fast Food')

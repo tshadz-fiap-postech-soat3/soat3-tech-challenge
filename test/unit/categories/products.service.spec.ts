@@ -13,10 +13,10 @@ describe('ProductsService', () => {
         ProductsService,
         {
           provide: IProductsRepository,
-          useClass: PrismaProductsRepository
+          useClass: PrismaProductsRepository,
         },
-        PrismaService
-    ],
+        PrismaService,
+      ],
     }).compile();
 
     service = module.get<ProductsService>(ProductsService);
