@@ -13,7 +13,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
           url,
         },
       },
-    })
+    });
   }
 
   async onModuleInit(): Promise<void> {
