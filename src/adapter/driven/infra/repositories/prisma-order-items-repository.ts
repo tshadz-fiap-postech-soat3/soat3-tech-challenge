@@ -7,43 +7,42 @@ import { OrderItemEntity } from '../../../../@core/domain/entities/order-item';
 
 @Injectable()
 export class PrismaOrderItemsRepository implements IOrderItemsRepository {
-    constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) {}
 
-    async insert(order: CreateOrderItemDto[]): Promise<void>{
-        await this.prisma.orderItems.createMany({
-            data: order
-        })
-    }
+  async insert(order: CreateOrderItemDto[]): Promise<void> {
+    await this.prisma.orderItems.createMany({
+      data: order,
+    });
+  }
 
-    async update(id: string, order: UpdateOrderItemDto): Promise<void>{
-        await this.prisma.orderItems.update({
-            data: order,
-            where: {
-                id: id
-            }
-        })
-    }
+  async update(id: string, order: UpdateOrderItemDto): Promise<void> {
+    await this.prisma.orderItems.update({
+      data: order,
+      where: {
+        id: id,
+      },
+    });
+  }
 
-    async findByOrderId(id: string): Promise<OrderItemEntity>{
-        const result = await this.prisma.orderItems.findMany({
-            where: {
-                orderId: id
-            }
-        })
-        return result as unknown as OrderItemEntity;
-    }
+  async findByOrderId(id: string): Promise<OrderItemEntity> {
+    const result = await this.prisma.orderItems.findMany({
+      where: {
+        orderId: id,
+      },
+    });
+    return result as unknown as OrderItemEntity;
+  }
 
-    async findAll(): Promise<OrderItemEntity[]>{
-        const result = await this.prisma.orderItems.findMany()
-        return result as unknown as OrderItemEntity[];
-    }
+  async findAll(): Promise<OrderItemEntity[]> {
+    const result = await this.prisma.orderItems.findMany();
+    return result as unknown as OrderItemEntity[];
+  }
 
-    async delete(id: string): Promise<void>{
-        await this.prisma.orderItems.delete({
-            where: {
-                id: id
-            }
-        })
-
-    }
+  async delete(id: string): Promise<void> {
+    await this.prisma.orderItems.delete({
+      where: {
+        id: id,
+      },
+    });
+  }
 }

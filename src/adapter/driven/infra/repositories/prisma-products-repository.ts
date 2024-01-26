@@ -7,43 +7,42 @@ import { ProductEntity } from '../../../../@core/domain/entities/product';
 
 @Injectable()
 export class PrismaProductsRepository implements IProductsRepository {
-    constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) {}
 
-    async insert(product: CreateProductDto): Promise<void>{
-        await this.prisma.product.create({
-            data: product
-        })
-    }
+  async insert(product: CreateProductDto): Promise<void> {
+    await this.prisma.product.create({
+      data: product,
+    });
+  }
 
-    async update(id: string, product: UpdateProductDto): Promise<void>{
-        await this.prisma.product.update({
-            data: product,
-            where: {
-                id: id
-            }
-        })
-    }
+  async update(id: string, product: UpdateProductDto): Promise<void> {
+    await this.prisma.product.update({
+      data: product,
+      where: {
+        id: id,
+      },
+    });
+  }
 
-    async findByCategory(category: string): Promise<ProductEntity>{
-        const result = await this.prisma.product.findFirstOrThrow({
-            where: {
-                categoryId: category
-            }
-        })
-        return result;
-    }
+  async findByCategory(category: string): Promise<ProductEntity> {
+    const result = await this.prisma.product.findFirstOrThrow({
+      where: {
+        categoryId: category,
+      },
+    });
+    return result;
+  }
 
-    async findAll(): Promise<ProductEntity[]>{
-        const result = await this.prisma.product.findMany()
-        return result;
-    }
+  async findAll(): Promise<ProductEntity[]> {
+    const result = await this.prisma.product.findMany();
+    return result;
+  }
 
-    async delete(id: string): Promise<void>{
-        await this.prisma.product.delete({
-            where: {
-                id: id
-            }
-        })
-
-    }
+  async delete(id: string): Promise<void> {
+    await this.prisma.product.delete({
+      where: {
+        id: id,
+      },
+    });
+  }
 }
