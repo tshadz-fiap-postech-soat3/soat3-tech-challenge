@@ -7,7 +7,7 @@ import { ICustomersRepository } from '../../ports/icustomer.repository';
 export class CustomersService {
   constructor(
     @Inject(ICustomersRepository)
-    private customersRepository: ICustomersRepository
+    private customersRepository: ICustomersRepository,
   ) {}
 
   async create(createCustomerDto: CreateCustomerDto) {

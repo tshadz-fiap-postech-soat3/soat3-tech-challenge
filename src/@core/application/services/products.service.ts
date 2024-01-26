@@ -7,11 +7,11 @@ import { UpdateProductDto } from '../../domain/dto/update-product.dto';
 export class ProductsService {
   constructor(
     @Inject(IProductsRepository)
-    private productsRepository: IProductsRepository
+    private productsRepository: IProductsRepository,
   ) {}
 
   async create(createProductDto: CreateProductDto) {
-    return await this.productsRepository.insert(createProductDto)
+    return await this.productsRepository.insert(createProductDto);
   }
 
   async findAll() {

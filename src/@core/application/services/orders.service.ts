@@ -8,7 +8,7 @@ import { OrderStatus } from 'src/@core/domain/entities/order';
 export class OrdersService {
   constructor(
     @Inject(IOrdersRepository)
-    private ordersRepository: IOrdersRepository
+    private ordersRepository: IOrdersRepository,
   ) {}
 
   async create(createOrderDto: CreateOrderDto) {
@@ -19,7 +19,7 @@ export class OrdersService {
     return await this.ordersRepository.findAll();
   }
 
-  async findAllByStatus(status: OrderStatus ) {
+  async findAllByStatus(status: OrderStatus) {
     return await this.ordersRepository.findAllByStatus(status);
   }
 

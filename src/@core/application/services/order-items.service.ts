@@ -7,7 +7,7 @@ import { UpdateOrderItemDto } from '../../domain/dto/update-order-item.dto';
 export class OrderItemsService {
   constructor(
     @Inject(IOrderItemsRepository)
-    private orderItemsRepository: IOrderItemsRepository
+    private orderItemsRepository: IOrderItemsRepository,
   ) {}
 
   async create(createOrderItemDto: CreateOrderItemDto[]) {

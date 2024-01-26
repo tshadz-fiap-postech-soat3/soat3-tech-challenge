@@ -7,11 +7,11 @@ import { ICategoriesRepository } from '../../ports/icategory.repository';
 export class CategoriesService {
   constructor(
     @Inject(ICategoriesRepository)
-    private categoriesRepository: ICategoriesRepository
-    ) {}
-  
+    private categoriesRepository: ICategoriesRepository,
+  ) {}
+
   async create(createCategoryDto: CreateCategoryDto): Promise<void> {
-    return await this.categoriesRepository.insert(createCategoryDto)
+    return await this.categoriesRepository.insert(createCategoryDto);
   }
 
   async findAll() {
@@ -19,14 +19,14 @@ export class CategoriesService {
   }
 
   async findOne(id: string) {
-    return await this.categoriesRepository.findById(id)
+    return await this.categoriesRepository.findById(id);
   }
 
   async update(id: string, updateCategoryDto: UpdateCategoryDto) {
-    return await this.categoriesRepository.update(id, updateCategoryDto)
+    return await this.categoriesRepository.update(id, updateCategoryDto);
   }
 
   async remove(id: string) {
-    return await this.categoriesRepository.delete(id)
+    return await this.categoriesRepository.delete(id);
   }
 }
