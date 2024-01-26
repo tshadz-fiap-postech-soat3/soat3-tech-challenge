@@ -1,18 +1,18 @@
 export class OrderItemEntity {
-    id: string
-    orderId: string
-    productId: string
-    quantity: number
+  id: string;
+  orderId: string;
+  productId: string;
+  quantity: number;
 
-    constructor(
-        id: string,
-        orderId: string,
-        productId: string,
-        quantity: number
-    ) {
-        this.id = id,
-        this.orderId = orderId,
-        this.productId = productId,
-        this.quantity = quantity
-    }
+  constructor(
+    id: string,
+    orderId: string,
+    productId: string,
+    quantity: number,
+  ) {
+    this.id = id;
+    this.orderId = orderId;
+    this.productId = productId;
+    this.quantity = quantity;
+  }
 }
