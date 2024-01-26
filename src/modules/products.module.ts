@@ -11,8 +11,9 @@ import { ProductsController } from '../adapter/driver/products.controller';
     ProductsService,
     {
       provide: IProductsRepository,
-      useClass: PrismaProductsRepository
-    }, PrismaService
+      useClass: PrismaProductsRepository,
+    },
+    PrismaService,
   ],
 })
 export class ProductsModule {}

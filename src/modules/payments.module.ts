@@ -14,14 +14,14 @@ import { PaymentMercadoPago } from '../adapter/driven/payment/payment';
     OrdersService,
     {
       provide: IOrdersRepository,
-      useClass: PrismaOrdersRepository
+      useClass: PrismaOrdersRepository,
     },
     PrismaService,
     PaymentsService,
     {
-        provide: IPayment,
-        useClass: PaymentMercadoPago
-      },
+      provide: IPayment,
+      useClass: PaymentMercadoPago,
+    },
   ],
 })
 export class PaymentsModule {}

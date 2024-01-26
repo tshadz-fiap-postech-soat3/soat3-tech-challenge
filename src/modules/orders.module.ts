@@ -11,9 +11,9 @@ import { OrdersController } from '../adapter/driver/orders.controller';
     OrdersService,
     {
       provide: IOrdersRepository,
-      useClass: PrismaOrdersRepository
+      useClass: PrismaOrdersRepository,
     },
-    PrismaService
+    PrismaService,
   ],
 })
 export class OrdersModule {}

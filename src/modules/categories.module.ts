@@ -15,7 +15,7 @@ import { CategoriesController } from '../adapter/driver/categories.controller';
       provide: ICategoriesRepository,
       useClass: PrismaCategoriesRepository,
     },
-    PrismaService
+    PrismaService,
   ],
 })
 export class CategoriesModule {}

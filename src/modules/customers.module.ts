@@ -13,9 +13,9 @@ import { PrismaService } from 'src/adapter/driven/infra/database/prisma.service'
     CustomersService,
     {
       provide: ICustomersRepository,
-      useClass: PrismaCustomersRepository
+      useClass: PrismaCustomersRepository,
     },
-    PrismaService
+    PrismaService,
   ],
 })
 export class CustomersModule {}
