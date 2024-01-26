@@ -26,7 +26,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 * MySQL
 * Swagger
 * Nest Js
-
+* Minikube
+* k9s
 
 <h2 id="running"> Como rodar a aplicação </h2>
 
