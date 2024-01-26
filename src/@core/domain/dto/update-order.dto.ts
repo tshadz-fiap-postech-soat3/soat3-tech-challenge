@@ -4,16 +4,16 @@ import { OrderStatus } from '../entities/order';
 import { CreateOrderDto } from './create-order.dto';
 
 export class UpdateOrderDto extends PartialType(CreateOrderDto) {
-    @ApiProperty({example: "Aguardando Pagamento"})
-    status: OrderStatus
+  @ApiProperty({ example: 'Aguardando Pagamento' })
+  status: OrderStatus;
 
-    @ApiProperty({example: "cust-1"})
-    customerId: string
+  @ApiProperty({ example: 'cust-1' })
+  customerId: string;
 
-    @ApiProperty({example: 100})
-    price: number
+  @ApiProperty({ example: 100 })
+  price: number;
 
-    constructor() {
-        super ({updatedAtDate: new Date()});
-    }
+  constructor() {
+    super({ updatedAtDate: new Date() });
+  }
 }

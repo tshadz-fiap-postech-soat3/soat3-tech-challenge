@@ -1,19 +1,19 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { ProductEntity } from "../entities/product";
+import { ApiProperty } from '@nestjs/swagger';
+import { ProductEntity } from '../entities/product';
 
-export class CreateProductDto extends ProductEntity{
-    @ApiProperty({example: "prod-6"})
-    id: string
+export class CreateProductDto extends ProductEntity {
+  @ApiProperty({ example: 'prod-6' })
+  id: string;
 
-    @ApiProperty({example: "Cebola empanada"})
-    name: string
+  @ApiProperty({ example: 'Cebola empanada' })
+  name: string;
 
-    @ApiProperty({example: "Anéis de cebola empanados"})
-    description: string
+  @ApiProperty({ example: 'Anéis de cebola empanados' })
+  description: string;
 
-    @ApiProperty({example: "cat-2"})
-    categoryId: string
+  @ApiProperty({ example: 'cat-2' })
+  categoryId: string;
 
-    @ApiProperty({example: 15})
-    price: number
+  @ApiProperty({ example: 15 })
+  price: number;
 }
