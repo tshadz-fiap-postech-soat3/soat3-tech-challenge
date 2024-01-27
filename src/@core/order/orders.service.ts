@@ -3,33 +3,56 @@ import { IOrdersRepository } from './repositories/iorder.repository';
 import { CreateOrderDto } from './entitites/create-order.dto';
 import { UpdateOrderDto } from './entitites/update-order.dto';
 import { OrderStatus } from './entitites/order';
+import { IOrdersService } from './iorders.service';
+import { ResultError } from '../application/result/result-error';
+import { ResultSuccess } from '../application/result/result-success';
 
 
 @Injectable()
-export class OrdersService {
+export class OrdersService implements IOrdersService {
   constructor(
     @Inject(IOrdersRepository)
     private ordersRepository: IOrdersRepository,
   ) {}
 
   async create(createOrderDto: CreateOrderDto) {
-    return await this.ordersRepository.insert(createOrderDto);
+    const result = await this.ordersRepository.insert(createOrderDto);
+    if (!result) {
+      return new ResultError('Not able to create the order');
+    }
+    return new ResultSuccess(result);
   }
 
   async findAll() {
-    return await this.ordersRepository.findAll();
+    const result = await this.ordersRepository.findAll();
+    if (!result) {
+      return new ResultError('order not exist');
+    }
+    return new ResultSuccess(result);
   }
 
   async findAllByStatus(status: OrderStatus) {
-    return await this.ordersRepository.findAllByStatus(status);
+    const result = await this.ordersRepository.findAllByStatus(status);
+    if (!result) {
+      return new ResultError('order not exist');
+    }
+    return new ResultSuccess(result);
   }
 
   async findOne(id: string) {
-    return await this.ordersRepository.findById(id);
+    const result = await this.ordersRepository.findById(id);
+    if (!result) {
+      return new ResultError('order not exist');
+    }
+    return new ResultSuccess(result);
   }
 
   async update(id: string, updateOrderDto: UpdateOrderDto) {
-    return await this.ordersRepository.update(id, updateOrderDto);
+    const result = await this.ordersRepository.update(id, updateOrderDto);
+    if (!result) {
+      return new ResultError('Not able to update the order');
+    }
+    return new ResultSuccess(result);
   }
 
   async remove(id: string) {

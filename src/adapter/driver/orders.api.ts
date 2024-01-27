@@ -15,7 +15,7 @@ import { UpdateOrderDto } from '../../@core/order/entitites/update-order.dto';
 
 @ApiTags('order')
 @Controller('orders')
-export class OrdersController {
+export class OrdersApi{
   constructor(private readonly ordersService: OrdersService) {}
 
   @Post()

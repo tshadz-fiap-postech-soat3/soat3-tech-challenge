@@ -3,8 +3,8 @@ import { UpdateOrderDto } from '../entitites/update-order.dto';
 import { OrderEntity, OrderStatus } from '../entitites/order';
 
 export abstract class IOrdersRepository {
-  public abstract insert(order: CreateOrderDto): Promise<void>;
-  public abstract update(id: string, order: UpdateOrderDto): Promise<void>;
+  public abstract insert(order: CreateOrderDto): Promise<OrderEntity>;
+  public abstract update(id: string, order: UpdateOrderDto): Promise<OrderEntity>;
   public abstract findById(id: string): Promise<OrderEntity>;
   public abstract findAll(): Promise<OrderEntity[]>;
   public abstract findAllByStatus(status: OrderStatus): Promise<OrderEntity[]>;

@@ -3,15 +3,28 @@ import { IOrdersRepository } from './repositories/iorder.repository';
 import { PrismaService } from '../../adapter/driven/infra/database/prisma.service';
 import { PrismaOrdersRepository } from './repositories/prisma-orders-repository';
 import { OrdersService } from './orders.service';
-import { OrdersController } from '../../adapter/driver/orders.controller';
+import { OrdersApi } from '../../adapter/driver/orders.api';
+import { IOrdersService } from './iorders.service';
+import { IOrdersController } from './controller/iorders-controller';
+import { OrdersController } from './controller/orders.controller';
 
 @Module({
-  controllers: [OrdersController],
+  controllers: [OrdersApi],
   providers: [
-    OrdersService,
+    PrismaOrdersRepository,
     {
       provide: IOrdersRepository,
       useClass: PrismaOrdersRepository,
+    },
+    OrdersService,
+    {
+      provide: IOrdersService,
+      useClass: OrdersService,
+    },
+    OrdersController,
+    {
+      provide: IOrdersController,
+      useClass: OrdersController,
     },
     PrismaService,
   ],

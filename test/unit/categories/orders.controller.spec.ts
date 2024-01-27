@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { OrdersController } from '../../../src/adapter/driver/orders.controller';
+import { OrdersController } from '../../../src/adapter/driver/orders.api';
 import { OrdersService } from '../../../src/@core/order/orders.service';
 import { IOrdersRepository } from '../../../src/@core/order/repositories/iorder.repository';
 import { PrismaOrdersRepository } from '../../../src/@core/order/repositories/prisma-orders-repository';

@@ -9,19 +9,21 @@ import { OrderEntity, OrderStatus } from '../entitites/order';
 export class PrismaOrdersRepository implements IOrdersRepository {
   constructor(private prisma: PrismaService) {}
 
-  async insert(order: CreateOrderDto): Promise<void> {
-    await this.prisma.order.create({
+  async insert(order: CreateOrderDto): Promise<OrderEntity> {
+    const result = await this.prisma.order.create({
       data: order,
     });
+    return result as unknown as OrderEntity;
   }
 
-  async update(id: string, order: UpdateOrderDto): Promise<void> {
-    await this.prisma.order.update({
+  async update(id: string, order: UpdateOrderDto): Promise<OrderEntity> {
+    const result = await this.prisma.order.update({
       data: order,
       where: {
         id: id,
       },
     });
+    return result as unknown as OrderEntity;
   }
 
   async findById(id: string): Promise<OrderEntity> {
