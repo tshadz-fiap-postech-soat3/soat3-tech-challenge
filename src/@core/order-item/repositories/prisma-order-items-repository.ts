@@ -9,14 +9,19 @@ import { OrderItemEntity } from '../entitites/order-item';
 export class PrismaOrderItemsRepository implements IOrderItemsRepository {
   constructor(private prisma: PrismaService) {}
 
-  async insert(order: CreateOrderItemDto[]): Promise<void> {
-    await this.prisma.orderItems.createMany({
+  async insert(order: CreateOrderItemDto[]): Promise<OrderItemEntity[]> {
+    const result = await this.prisma.orderItems.createMany({
       data: order,
     });
+
+    return result as unknown as OrderItemEntity[];
   }
 
-  async update(id: string, order: UpdateOrderItemDto): Promise<void> {
-    await this.prisma.orderItems.update({
+  async update(
+    id: string,
+    order: UpdateOrderItemDto,
+  ): Promise<OrderItemEntity> {
+    return await this.prisma.orderItems.update({
       data: order,
       where: {
         id: id,

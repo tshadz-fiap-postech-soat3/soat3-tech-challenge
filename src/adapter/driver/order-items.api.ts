@@ -8,32 +8,32 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { OrderItemsService } from '../../@core/order-item/order-items.service';
 import { CreateOrderItemDto } from '../../@core/order-item/entitites/create-order-item.dto';
 import { UpdateOrderItemDto } from '../../@core/order-item/entitites/update-order-item.dto';
+import { OrderItemsController } from '../../@core/order-item/controller/order-item.controller';
 
 @ApiTags('order-item')
 @Controller('order-items')
-export class OrderItemsController {
-  constructor(private readonly orderItemsService: OrderItemsService) {}
+export class OrderItemsApi {
+  constructor(private readonly orderItemsController: OrderItemsController) {}
 
   @Post()
   @ApiOperation({ summary: 'add itens to an order' })
   create(@Body() createOrderItemDto: CreateOrderItemDto[]) {
     console.log(createOrderItemDto);
-    return this.orderItemsService.create(createOrderItemDto);
+    return this.orderItemsController.create(createOrderItemDto);
   }
 
   @Get()
   @ApiOperation({ summary: 'return all order items created' })
   findAll() {
-    return this.orderItemsService.findAll();
+    return this.orderItemsController.findAll();
   }
 
   @Get(':id')
   @ApiOperation({ summary: 'return one order item' })
   findOne(@Param('id') id: string) {
-    return this.orderItemsService.findOne(id);
+    return this.orderItemsController.findOne(id);
   }
 
   @Patch(':id')
@@ -42,12 +42,12 @@ export class OrderItemsController {
     @Param('id') id: string,
     @Body() updateOrderItemDto: UpdateOrderItemDto,
   ) {
-    return this.orderItemsService.update(id, updateOrderItemDto);
+    return this.orderItemsController.update(id, updateOrderItemDto);
   }
 
   @Delete(':id')
   @ApiOperation({ summary: 'delete the order item' })
   remove(@Param('id') id: string) {
-    return this.orderItemsService.remove(id);
+    return this.orderItemsController.remove(id);
   }
 }
