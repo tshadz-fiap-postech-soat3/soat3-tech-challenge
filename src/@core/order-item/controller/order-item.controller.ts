@@ -15,15 +15,8 @@ export class OrderItemsController implements IOrderItemsController {
   ) {}
 
   async create(createOrderItemDto: CreateOrderItemDto[]) {
-    const product = await this.orderItemsService.findOne(CreateOrderItemDto.name);
-    if (product.status !== ResultStatus.ERROR) {
-      return new ApplicationResult(
-        ApplicationResultEvents.ERROR,
-        'Ordem item already exists',
-      );
-    }
-    const createdProduct = await this.orderItemsService.create(createOrderItemDto);
-    if (createdProduct.status === ResultStatus.ERROR) {
+    const orderItems = await this.orderItemsService.create(createOrderItemDto);
+    if (orderItems.status === ResultStatus.ERROR) {
       return new ApplicationResult(
         ApplicationResultEvents.ERROR,
         'Not able to create the order item',
@@ -31,7 +24,7 @@ export class OrderItemsController implements IOrderItemsController {
     }
     return new ApplicationResult(
       ApplicationResultEvents.SUCCESS_CREATED,
-      createdProduct as unknown as string,
+      orderItems as unknown as string,
     );
   }
 

@@ -95,3 +95,12 @@ $  kubectl port-forward deployment/fast-food-deployment 8080:8080
 
 ### Após rodar o projeto, acesse http://localhost:8080/swagger
 ![swagger](https://github.com/tshadz/soat3-tech-chalenge/assets/80704054/f5ba4ca7-a7b4-4dc8-9d0c-3c3c2f7cd2c7)
+
+## Fluxo para consumo da API simulando um atendimento no totem
+
+1. Get Producs
+2. Post Customer (opcional)
+3. Post Order (customer id é opcional)
+4. Post Order Item (usando os IDs dos produtos e do pedido que foi criado)
+5. Patch Payment (o pagamento será automaticamente realizado)
+

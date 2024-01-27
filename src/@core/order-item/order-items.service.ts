@@ -14,7 +14,7 @@ export class OrderItemsService implements IOrderItemsService {
     private readonly orderItemsRepository: IOrderItemsRepository,
   ) {}
 
-  async create(createOrderItemDto: CreateOrderItemDto) {
+  async create(createOrderItemDto: CreateOrderItemDto[]) {
     const result = await this.orderItemsRepository.insert(createOrderItemDto);
     if (!result) {
       return new ResultError('Not able to create the order');

@@ -19,7 +19,7 @@ export class OrderItemsApi {
 
   @Post()
   @ApiOperation({ summary: 'add itens to an order' })
-  create(@Body() createOrderItemDto: CreateOrderItemDto) {
+  create(@Body() createOrderItemDto: CreateOrderItemDto[]) {
     return this.orderItemsController.create(createOrderItemDto);
   }
 
