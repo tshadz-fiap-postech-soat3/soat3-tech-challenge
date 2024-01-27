@@ -4,7 +4,9 @@ import { PrismaService } from '../adapter/driven/infra/database/prisma.service';
 import { PrismaProductsRepository } from '../adapter/driven/infra/repositories/prisma-products-repository';
 import { ProductsService } from '../@core/application/services/products.service';
 import { ProductsController } from '../adapter/driver/products.controller';
+import { CreateProductCommandHandler } from 'src/@core/application/command-handler/products-command-handler';
 
+export const CommandHandlers = [CreateProductCommandHandler];
 @Module({
   controllers: [ProductsController],
   providers: [
@@ -13,6 +15,7 @@ import { ProductsController } from '../adapter/driver/products.controller';
       provide: IProductsRepository,
       useClass: PrismaProductsRepository,
     },
+    ...CommandHandlers,
     PrismaService,
   ],
 })
