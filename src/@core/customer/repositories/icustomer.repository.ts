@@ -1,6 +1,6 @@
-import { CreateCustomerDto } from '../domain/dto/create-customer.dto';
-import { UpdateCustomerDto } from '../domain/dto/update-customer.dto';
-import { CustomerEntity } from '../domain/entities/customer';
+import { CreateCustomerDto } from '../entitites/create-customer.dto';
+import { UpdateCustomerDto } from '../entitites/update-customer.dto';
+import { CustomerEntity } from '../entitites/customer';
 
 export abstract class ICustomersRepository {
   public abstract insert(customer: CreateCustomerDto): Promise<void>;

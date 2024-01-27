@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { CustomerEntity } from '../entities/customer';
+import { CustomerEntity } from './customer';
 
 export class CreateCustomerDto extends CustomerEntity {
   @ApiProperty()

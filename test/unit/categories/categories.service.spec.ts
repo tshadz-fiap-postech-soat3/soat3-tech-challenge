@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CategoriesService } from '../../../src/@core/application/services/categories.service';
-import { CreateCategoryDto } from '../../../src/@core/domain/dto/create-category.dto';
+import { CreateCategoryDto } from '../../../src/@core/category/entitites/create-category.dto';
 import { PrismaService } from '../../../src/adapter/driven/infra/database/prisma.service';
-import { ICategoriesRepository } from '../../../src/@core/ports/icategory.repository';
-import { PrismaCategoriesRepository } from '../../../src/adapter/driven/infra/repositories/prisma-categories-repository';
+import { ICategoriesRepository } from '../../../src/@core/category/repositories/icategory.repository';
+import { PrismaCategoriesRepository } from '../../../src/@core/category/repositories/prisma-categories-repository';
 
 describe('CategoriesService', () => {
   let service: CategoriesService;

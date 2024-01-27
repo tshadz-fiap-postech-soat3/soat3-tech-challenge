@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IOrdersRepository } from '../../ports/iorder.repository';
-import { CreateOrderDto } from '../../domain/dto/create-order.dto';
-import { UpdateOrderDto } from '../../domain/dto/update-order.dto';
+import { IOrdersRepository } from '../../order/repositories/iorder.repository';
+import { CreateOrderDto } from '../../order/entitites/create-order.dto';
+import { UpdateOrderDto } from '../../order/entitites/update-order.dto';
 import { OrderStatus } from 'src/@core/domain/entities/order';
 
 @Injectable()

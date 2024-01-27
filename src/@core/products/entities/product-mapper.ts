@@ -1,5 +1,5 @@
-import { CreateProductDto } from '../dto/create-product.dto';
-import { ProductEntity } from '../../products/entities/product';
+import { CreateProductDto } from './create-product.dto';
+import { ProductEntity } from './product';
 
 export class ProductMapper {
   public id: string;

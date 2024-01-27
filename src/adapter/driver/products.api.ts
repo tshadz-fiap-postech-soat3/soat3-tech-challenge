@@ -9,8 +9,8 @@ import {
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { ProductsController } from '../../@core/products/controller/products.controller';
-import { CreateProductDto } from '../../@core/domain/dto/create-product.dto';
-import { UpdateProductDto } from '../../@core/domain/dto/update-product.dto';
+import { CreateProductDto } from '../../@core/products/entities/create-product.dto';
+import { UpdateProductDto } from '../../@core/products/entities/update-product.dto';
 
 @ApiTags('product')
 @Controller('products')

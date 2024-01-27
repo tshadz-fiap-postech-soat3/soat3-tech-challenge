@@ -1,9 +1,9 @@
 import { Controller, Patch, Param } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { PaymentsService } from '../../@core/application/services/payments.service';
-import { OrderStatus } from '../../@core/domain/entities/order';
+import { OrderStatus } from '../../@core/order/entitites/order';
 import { OrdersService } from '../../@core/application/services/orders.service';
-import { UpdateOrderDto } from '../../@core/domain/dto/update-order.dto';
+import { UpdateOrderDto } from '../../@core/order/entitites/update-order.dto';
 
 @ApiTags('payment')
 @Controller('payments')

@@ -1,8 +1,8 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IProductsService } from './iproducts.service';
 import { IProductsRepository } from './repositories/iproduct.repository';
-import { CreateProductDto } from '../domain/dto/create-product.dto';
-import { UpdateProductDto } from '../domain/dto/update-product.dto';
+import { CreateProductDto } from './entities/create-product.dto';
+import { UpdateProductDto } from './entities/update-product.dto';
 import { ResultError } from '../application/result/result-error';
 import { ResultSuccess } from '../application/result/result-success';
 

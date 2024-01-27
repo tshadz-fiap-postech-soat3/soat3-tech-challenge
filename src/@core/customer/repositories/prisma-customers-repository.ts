@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { ICustomersRepository } from '../../../../@core/ports/icustomer.repository';
-import { PrismaService } from '../database/prisma.service';
-import { CreateCustomerDto } from '../../../../@core/domain/dto/create-customer.dto';
-import { UpdateCustomerDto } from '../../../../@core/domain/dto/update-customer.dto';
-import { CustomerEntity } from '../../../../@core/domain/entities/customer';
+import { ICustomersRepository } from './icustomer.repository';
+import { PrismaService } from '../../../adapter/driven/infra/database/prisma.service';
+import { CreateCustomerDto } from '../entitites/create-customer.dto';
+import { UpdateCustomerDto } from '../entitites/update-customer.dto';
+import { CustomerEntity } from '../entitites/customer';
 
 @Injectable()
 export class PrismaCustomersRepository implements ICustomersRepository {

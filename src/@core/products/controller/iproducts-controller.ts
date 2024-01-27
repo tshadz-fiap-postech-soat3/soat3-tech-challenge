@@ -1,7 +1,7 @@
 import { ApplicationResult } from '../../application/applicationResult/application-result';
 import { Result } from '../../application/result/result';
-import { CreateProductDto } from '../../domain/dto/create-product.dto';
-import { UpdateProductDto } from '../../domain/dto/update-product.dto';
+import { CreateProductDto } from '../entities/create-product.dto';
+import { UpdateProductDto } from '../entities/update-product.dto';
 import { ProductEntity } from '../entities/product';
 
 export abstract class IProductsController {

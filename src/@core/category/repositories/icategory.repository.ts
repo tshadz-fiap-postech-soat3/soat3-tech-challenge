@@ -1,6 +1,6 @@
-import { CreateCategoryDto } from '../domain/dto/create-category.dto';
-import { UpdateCategoryDto } from '../domain/dto/update-category.dto';
-import { CategoryEntity } from '../domain/entities/category';
+import { CreateCategoryDto } from '../entitites/create-category.dto';
+import { UpdateCategoryDto } from '../../products/entities/update-category.dto';
+import { CategoryEntity } from '../entitites/category';
 
 export abstract class ICategoriesRepository {
   public abstract insert(category: CreateCategoryDto): Promise<void>;

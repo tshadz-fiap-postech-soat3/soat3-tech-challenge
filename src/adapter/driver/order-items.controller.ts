@@ -9,8 +9,8 @@ import {
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { OrderItemsService } from '../../@core/application/services/order-items.service';
-import { CreateOrderItemDto } from '../../@core/domain/dto/create-order-item.dto';
-import { UpdateOrderItemDto } from '../../@core/domain/dto/update-order-item.dto';
+import { CreateOrderItemDto } from '../../@core/order-item/entitites/create-order-item.dto';
+import { UpdateOrderItemDto } from '../../@core/order-item/entitites/update-order-item.dto';
 
 @ApiTags('order-item')
 @Controller('order-items')

@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { ICategoriesRepository } from '../../../../@core/ports/icategory.repository';
-import { PrismaService } from '../database/prisma.service';
-import { CreateCategoryDto } from '../../../../@core/domain/dto/create-category.dto';
-import { UpdateCategoryDto } from '../../../../@core/domain/dto/update-category.dto';
-import { CategoryEntity } from '../../../../@core/domain/entities/category';
+import { ICategoriesRepository } from './icategory.repository';
+import { PrismaService } from '../../../adapter/driven/infra/database/prisma.service';
+import { CreateCategoryDto } from '../entitites/create-category.dto';
+import { UpdateCategoryDto } from '../../products/entities/update-category.dto';
+import { CategoryEntity } from '../entitites/category';
 
 @Injectable()
 export class PrismaCategoriesRepository implements ICategoriesRepository {

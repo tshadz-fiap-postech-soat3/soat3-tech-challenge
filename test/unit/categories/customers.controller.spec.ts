@@ -2,8 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { CustomersController } from '../../../src/adapter/driver/customers.controller';
 import { CustomersService } from '../../../src/@core/application/services/customers.service';
 import { PrismaService } from '../../../src/adapter/driven/infra/database/prisma.service';
-import { ICustomersRepository } from '../../../src/@core/ports/icustomer.repository';
-import { PrismaCustomersRepository } from '../../../src/adapter/driven/infra/repositories/prisma-customers-repository';
+import { ICustomersRepository } from '../../../src/@core/customer/repositories/icustomer.repository';
+import { PrismaCustomersRepository } from '../../../src/@core/customer/repositories/prisma-customers-repository';
 
 describe('CustomersController', () => {
   let controller: CustomersController;

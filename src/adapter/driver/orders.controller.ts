@@ -8,10 +8,10 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { OrderStatus } from '../../@core/domain/entities/order';
+import { OrderStatus } from '../../@core/order/entitites/order';
 import { OrdersService } from '../../@core/application/services/orders.service';
-import { CreateOrderDto } from '../../@core/domain/dto/create-order.dto';
-import { UpdateOrderDto } from '../../@core/domain/dto/update-order.dto';
+import { CreateOrderDto } from '../../@core/order/entitites/create-order.dto';
+import { UpdateOrderDto } from '../../@core/order/entitites/update-order.dto';
 
 @ApiTags('order')
 @Controller('orders')

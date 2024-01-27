@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { IOrderItemsRepository } from '../../../src/@core/ports/iorder-items.repository';
+import { IOrderItemsRepository } from '../../../src/@core/order-item/repositories/iorder-items.repository';
 import { PrismaService } from '../../../src/adapter/driven/infra/database/prisma.service';
-import { PrismaOrderItemsRepository } from '../../../src/adapter/driven/infra/repositories/prisma-order-items-repository';
+import { PrismaOrderItemsRepository } from '../../../src/@core/order-item/repositories/prisma-order-items-repository';
 import { OrderItemsService } from '../../../src/@core/application/services/order-items.service';
 
 describe('OrderItemsService', () => {

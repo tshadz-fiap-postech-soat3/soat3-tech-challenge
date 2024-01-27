@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { UpdateProductDto } from '../../../@core/domain/dto/update-product.dto';
-import { IPayment } from '../../../@core/ports/ipayment';
+import { UpdateProductDto } from '../../../@core/products/entities/update-product.dto';
+import { IPayment } from './ipayment';
 
 @Injectable()
 export class PaymentMercadoPago implements IPayment {

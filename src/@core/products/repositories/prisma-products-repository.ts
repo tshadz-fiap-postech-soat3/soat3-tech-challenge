@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { IProductsRepository } from '../../../../@core/products/repositories/iproduct.repository';
-import { PrismaService } from '../database/prisma.service';
-import { UpdateProductDto } from '../../../../@core/domain/dto/update-product.dto';
-import { ProductEntity } from '../../../../@core/products/entities/product';
-import { CreateProductDto } from 'src/@core/domain/dto/create-product.dto';
+import { IProductsRepository } from './iproduct.repository';
+import { PrismaService } from '../../../adapter/driven/infra/database/prisma.service';
+import { UpdateProductDto } from '../entities/update-product.dto';
+import { ProductEntity } from '../entities/product';
+import { CreateProductDto } from '../entities/create-product.dto';
 
 @Injectable()
 export class PrismaProductsRepository implements IProductsRepository {
@@ -15,10 +15,7 @@ export class PrismaProductsRepository implements IProductsRepository {
     });
   }
 
-  async update(
-    id: string,
-    product: UpdateProductDto,
-  ): Promise<ProductEntity> {
+  async update(id: string, product: UpdateProductDto): Promise<ProductEntity> {
     return await this.prisma.product.update({
       data: product,
       where: {
@@ -33,7 +30,6 @@ export class PrismaProductsRepository implements IProductsRepository {
         categoryId: category,
       },
     });
-
   }
 
   async findByName(name: string): Promise<ProductEntity | null> {
