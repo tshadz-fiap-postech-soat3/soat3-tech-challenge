@@ -10,11 +10,11 @@ import {
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { CategoriesService } from '../../@core/category/categories.service';
 import { CreateCategoryDto } from '../../@core/category/entitites/create-category.dto';
-import { UpdateCategoryDto } from '../../@core/products/entities/update-category.dto';
+import { UpdateCategoryDto } from '../../@core/category/entitites/update-category.dto';
 
 @ApiTags('category')
 @Controller('categories')
-export class CategoriesController {
+export class CategoriesApi {
   constructor(private readonly categoriesService: CategoriesService) {}
 
   @Post()

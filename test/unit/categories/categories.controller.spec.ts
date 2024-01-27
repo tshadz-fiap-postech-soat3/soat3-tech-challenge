@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CategoriesController } from '../../../src/adapter/driver/categories.controller';
+import { CategoriesController } from '../../../src/adapter/driver/categories.api';
 import { CategoriesService } from '../../../src/@core/category/categories.service';
 import { PrismaService } from '../../../src/adapter/driven/infra/database/prisma.service';
 import { ICategoriesRepository } from '../../../src/@core/category/repositories/icategory.repository';
