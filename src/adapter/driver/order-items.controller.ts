@@ -8,7 +8,7 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { OrderItemsService } from '../../@core/application/services/order-items.service';
+import { OrderItemsService } from '../../@core/order-item/order-items.service';
 import { CreateOrderItemDto } from '../../@core/order-item/entitites/create-order-item.dto';
 import { UpdateOrderItemDto } from '../../@core/order-item/entitites/update-order-item.dto';
 

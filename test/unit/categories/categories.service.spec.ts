@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CategoriesService } from '../../../src/@core/application/services/categories.service';
+import { CategoriesService } from '../../../src/@core/category/categories.service';
 import { CreateCategoryDto } from '../../../src/@core/category/entitites/create-category.dto';
 import { PrismaService } from '../../../src/adapter/driven/infra/database/prisma.service';
 import { ICategoriesRepository } from '../../../src/@core/category/repositories/icategory.repository';

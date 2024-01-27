@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { OrderStatus } from '../../@core/order/entitites/order';
-import { OrdersService } from '../../@core/application/services/orders.service';
+import { OrdersService } from '../../@core/order/orders.service';
 import { CreateOrderDto } from '../../@core/order/entitites/create-order.dto';
 import { UpdateOrderDto } from '../../@core/order/entitites/update-order.dto';
 

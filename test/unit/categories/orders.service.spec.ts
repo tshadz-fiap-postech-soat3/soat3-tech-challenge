@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { IOrdersRepository } from '../../../src/@core/order/repositories/iorder.repository';
 import { PrismaService } from '../../../src/adapter/driven/infra/database/prisma.service';
 import { PrismaOrdersRepository } from '../../../src/@core/order/repositories/prisma-orders-repository';
-import { OrdersService } from '../../../src/@core/application/services/orders.service';
+import { OrdersService } from '../../../src/@core/order/orders.service';
 
 describe('OrdersService', () => {
   let service: OrdersService;

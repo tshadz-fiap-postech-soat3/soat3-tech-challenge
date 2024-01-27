@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { CustomersService } from '../application/services/customers.service';
+import { CustomersService } from './customers.service';
 import { CustomersController } from '../../adapter/driver/customers.controller';
 import { DatabaseModule } from '../../adapter/driven/infra/database/database.module';
 import { ICustomersRepository } from './repositories/icustomer.repository';

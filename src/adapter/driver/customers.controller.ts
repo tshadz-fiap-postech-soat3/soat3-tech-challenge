@@ -8,7 +8,7 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { CustomersService } from '../../@core/application/services/customers.service';
+import { CustomersService } from '../../@core/customer/customers.service';
 import { CreateCustomerDto } from '../../@core/customer/entitites/create-customer.dto';
 import { UpdateCustomerDto } from '../../@core/customer/entitites/update-customer.dto';
 

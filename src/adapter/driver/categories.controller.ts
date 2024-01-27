@@ -8,7 +8,7 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { CategoriesService } from '../../@core/application/services/categories.service';
+import { CategoriesService } from '../../@core/category/categories.service';
 import { CreateCategoryDto } from '../../@core/category/entitites/create-category.dto';
 import { UpdateCategoryDto } from '../../@core/products/entities/update-category.dto';
 

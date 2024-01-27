@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CustomersService } from '../../../src/@core/application/services/customers.service';
+import { CustomersService } from '../../../src/@core/customer/customers.service';
 import { CreateCustomerDto } from '../../../src/@core/customer/entitites/create-customer.dto';
 import { PrismaService } from '../../../src/adapter/driven/infra/database/prisma.service';
 import { ICustomersRepository } from '../../../src/@core/customer/repositories/icustomer.repository';
