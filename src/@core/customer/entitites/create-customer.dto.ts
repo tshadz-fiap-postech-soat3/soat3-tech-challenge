@@ -2,12 +2,12 @@ import { ApiProperty } from '@nestjs/swagger';
 import { CustomerEntity } from './customer';
 
 export class CreateCustomerDto extends CustomerEntity {
-  @ApiProperty()
+  @ApiProperty({ example: 'cust-4' })
   id: string;
 
-  @ApiProperty()
+  @ApiProperty({ example: 'Customer-4' })
   name: string;
 
-  @ApiProperty()
+  @ApiProperty({ example: '12345678904' })
   cpf: string;
 }

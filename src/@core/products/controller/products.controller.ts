@@ -1,5 +1,4 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IProductsRepository } from '../repositories/iproduct.repository';
 import { CreateProductDto } from '../entities/create-product.dto';
 import { UpdateProductDto } from '../entities/update-product.dto';
 import { ApplicationResult } from '../../application/applicationResult/application-result';

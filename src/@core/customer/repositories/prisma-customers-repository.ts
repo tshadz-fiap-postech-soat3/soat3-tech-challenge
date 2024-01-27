@@ -9,14 +9,14 @@ import { CustomerEntity } from '../entitites/customer';
 export class PrismaCustomersRepository implements ICustomersRepository {
   constructor(private prisma: PrismaService) {}
 
-  async insert(customer: CreateCustomerDto): Promise<void> {
-    await this.prisma.customer.create({
+  async insert(customer: CreateCustomerDto): Promise<CustomerEntity> {
+    return await this.prisma.customer.create({
       data: customer,
     });
   }
 
-  async update(id: string, customer: UpdateCustomerDto): Promise<void> {
-    await this.prisma.customer.update({
+  async update(id: string, customer: UpdateCustomerDto): Promise<CustomerEntity> {
+    return await this.prisma.customer.update({
       data: customer,
       where: {
         id: id,
@@ -25,17 +25,15 @@ export class PrismaCustomersRepository implements ICustomersRepository {
   }
 
   async findByCpf(cpf: string): Promise<CustomerEntity> {
-    const result = await this.prisma.customer.findUniqueOrThrow({
+    return await this.prisma.customer.findUniqueOrThrow({
       where: {
         cpf: cpf,
       },
     });
-    return result;
   }
 
   async findAll(): Promise<CustomerEntity[]> {
-    const result = await this.prisma.customer.findMany();
-    return result;
+    return await this.prisma.customer.findMany();
   }
 
   async delete(id: string): Promise<void> {

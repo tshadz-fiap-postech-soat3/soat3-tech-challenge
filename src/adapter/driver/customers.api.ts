@@ -14,7 +14,7 @@ import { UpdateCustomerDto } from '../../@core/customer/entitites/update-custome
 
 @ApiTags('customer')
 @Controller('customers')
-export class CustomersController {
+export class CustomersApi{
   constructor(private readonly customersService: CustomersService) {}
 
   @Post()
@@ -32,7 +32,7 @@ export class CustomersController {
   @Get(':cpf')
   @ApiOperation({ summary: 'return customer data by cpf' })
   async findOne(@Param('cpf') cpf: string) {
-    return await this.customersService.findOne(cpf);
+    return await this.customersService.findByCpf(cpf);
   }
 
   @Patch(':id')

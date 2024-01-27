@@ -1,4 +1,3 @@
-import { ApplicationResult } from '../application/applicationResult/application-result';
 import { Result } from '../application/result/result';
 import { CreateProductDto } from './entities/create-product.dto';
 import { UpdateProductDto } from './entities/update-product.dto';
