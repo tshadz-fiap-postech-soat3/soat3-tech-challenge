@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { IProductsRepository } from '../../../src/@core/ports/iproduct.repository';
+import { IProductsRepository } from '../../../src/@core/products/repositories/iproduct.repository';
 import { PrismaService } from '../../../src/adapter/driven/infra/database/prisma.service';
 import { PrismaProductsRepository } from '../../../src/adapter/driven/infra/repositories/prisma-products-repository';
-import { ProductsService } from '../../../src/@core/application/services/products.service';
+import { ProductsService } from '../../../src/@core/products/controller/products.controller';
 
 describe('ProductsService', () => {
   let service: ProductsService;

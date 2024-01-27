@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { ProductEntity } from '../entities/product';
+import { ProductEntity } from '../../products/entities/product';
 
 export class CreateProductDto extends ProductEntity {
   @ApiProperty({ example: 'prod-6' })
