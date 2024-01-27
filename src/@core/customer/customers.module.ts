@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { CustomersService } from './customers.service';
-import { CustomersApi } from '../../adapter/driver/customers.api';
+import { CustomersApi } from '../../external/driver/customers.api';
 import { ICustomersRepository } from './repositories/icustomer.repository';
 import { PrismaCustomersRepository } from './repositories/prisma-customers-repository';
-import { PrismaService } from '../../adapter/driven/infra/database/prisma.service';
+import { PrismaService } from '../../external/driven/infra/database/prisma.service';
 import { ICustomersService } from './icustomers.service';
 import { CustomersController } from './controller/customers.controller';
 import { ICustomersController } from './controller/icustomers-controller';

@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CategoriesController } from '../../../src/adapter/driver/categories.api';
+import { CategoriesController } from '../../../src/external/driver/categories.api';
 import { CategoriesService } from '../../../src/@core/category/categories.service';
-import { PrismaService } from '../../../src/adapter/driven/infra/database/prisma.service';
+import { PrismaService } from '../../../src/external/driven/infra/database/prisma.service';
 import { ICategoriesRepository } from '../../../src/@core/category/repositories/icategory.repository';
 import { PrismaCategoriesRepository } from '../../../src/@core/category/repositories/prisma-categories-repository';
 

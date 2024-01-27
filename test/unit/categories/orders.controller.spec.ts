@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { OrdersController } from '../../../src/adapter/driver/orders.api';
+import { OrdersController } from '../../../src/external/driver/orders.api';
 import { OrdersService } from '../../../src/@core/order/orders.service';
 import { IOrdersRepository } from '../../../src/@core/order/repositories/iorder.repository';
 import { PrismaOrdersRepository } from '../../../src/@core/order/repositories/prisma-orders-repository';
-import { PrismaService } from '../../../src/adapter/driven/infra/database/prisma.service';
+import { PrismaService } from '../../../src/external/driven/infra/database/prisma.service';
 
 describe('OrdersController', () => {
   let controller: OrdersController;

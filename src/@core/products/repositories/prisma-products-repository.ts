@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { IProductsRepository } from './iproduct.repository';
-import { PrismaService } from '../../../adapter/driven/infra/database/prisma.service';
+import { PrismaService } from '../../../external/driven/infra/database/prisma.service';
 import { UpdateProductDto } from '../entities/update-product.dto';
 import { ProductEntity } from '../entities/product';
 import { CreateProductDto } from '../entities/create-product.dto';

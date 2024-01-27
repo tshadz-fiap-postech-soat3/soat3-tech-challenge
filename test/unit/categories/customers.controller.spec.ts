@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CustomersController } from '../../../src/adapter/driver/customers.api';
+import { CustomersController } from '../../../src/external/driver/customers.api';
 import { CustomersService } from '../../../src/@core/customer/customers.service';
-import { PrismaService } from '../../../src/adapter/driven/infra/database/prisma.service';
+import { PrismaService } from '../../../src/external/driven/infra/database/prisma.service';
 import { ICustomersRepository } from '../../../src/@core/customer/repositories/icustomer.repository';
 import { PrismaCustomersRepository } from '../../../src/@core/customer/repositories/prisma-customers-repository';
 

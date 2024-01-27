@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ICustomersRepository } from './icustomer.repository';
-import { PrismaService } from '../../../adapter/driven/infra/database/prisma.service';
+import { PrismaService } from '../../../external/driven/infra/database/prisma.service';
 import { CreateCustomerDto } from '../entitites/create-customer.dto';
 import { UpdateCustomerDto } from '../entitites/update-customer.dto';
 import { CustomerEntity } from '../entitites/customer';
@@ -15,7 +15,10 @@ export class PrismaCustomersRepository implements ICustomersRepository {
     });
   }
 
-  async update(id: string, customer: UpdateCustomerDto): Promise<CustomerEntity> {
+  async update(
+    id: string,
+    customer: UpdateCustomerDto,
+  ): Promise<CustomerEntity> {
     return await this.prisma.customer.update({
       data: customer,
       where: {

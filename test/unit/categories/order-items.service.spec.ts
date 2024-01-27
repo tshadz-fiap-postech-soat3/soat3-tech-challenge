@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { IOrderItemsRepository } from '../../../src/@core/order-item/repositories/iorder-items.repository';
-import { PrismaService } from '../../../src/adapter/driven/infra/database/prisma.service';
+import { PrismaService } from '../../../src/external/driven/infra/database/prisma.service';
 import { PrismaOrderItemsRepository } from '../../../src/@core/order-item/repositories/prisma-order-items-repository';
 import { OrderItemsService } from '../../../src/@core/order-item/order-items.service';
 

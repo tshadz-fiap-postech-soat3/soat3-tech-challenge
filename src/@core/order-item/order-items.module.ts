@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { IOrderItemsRepository } from './repositories/iorder-items.repository';
-import { PrismaService } from '../../adapter/driven/infra/database/prisma.service';
+import { PrismaService } from '../../external/driven/infra/database/prisma.service';
 import { OrderItemsService } from './order-items.service';
-import { OrderItemsApi } from '../../adapter/driver/order-items.api';
+import { OrderItemsApi } from '../../external/driver/order-items.api';
 import { PrismaOrderItemsRepository } from './repositories/prisma-order-items-repository';
 import { IOrderItemsService } from './iorderItems.service';
 import { IOrderItemsController } from './controller/iorder-item-controller';

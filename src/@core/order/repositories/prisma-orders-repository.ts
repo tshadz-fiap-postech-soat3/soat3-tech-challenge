@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { IOrdersRepository } from './iorder.repository';
-import { PrismaService } from '../../../adapter/driven/infra/database/prisma.service';
+import { PrismaService } from '../../../external/driven/infra/database/prisma.service';
 import { CreateOrderDto } from '../entitites/create-order.dto';
 import { UpdateOrderDto } from '../entitites/update-order.dto';
 import { OrderEntity, OrderStatus } from '../entitites/order';
