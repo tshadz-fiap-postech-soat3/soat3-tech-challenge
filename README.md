@@ -8,6 +8,7 @@ Acesse a [Wiki do Projeto](https://github.com/tshadz/soat3-tech-chalenge/wiki) p
 * Domain-Driven Design
 * S-SDLC
 * Arquitetura
+* Vídeo explicativo postado no Vimeo
 
 <p align="center">
   <a href="#tecnologias">Tecnologias</a> &#xa0; | &#xa0;
