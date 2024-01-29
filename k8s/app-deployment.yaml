@@ -18,7 +18,7 @@ spec:
         {}
       containers:
         - name: fast-food
-          image: tshadz/fast-food-app:1.0.1
+          image: tshadz/fast-food-app:1.0.2
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
