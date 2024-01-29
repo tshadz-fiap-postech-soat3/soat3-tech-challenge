@@ -5,13 +5,13 @@ import { CreateOrderDto } from './create-order.dto';
 
 export class UpdateOrderDto extends PartialType(CreateOrderDto) {
   @ApiProperty({ example: 'Aguardando Pagamento' })
-  status: OrderStatus;
+  status?: OrderStatus;
 
   @ApiProperty({ example: 'cust-1' })
-  customerId: string;
+  customerId?: string;
 
   @ApiProperty({ example: 100 })
-  price: number;
+  price?: number;
 
   constructor() {
     super({ updatedAtDate: new Date() });

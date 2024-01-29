@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import { OrderStatus } from "../src/@core/order/entitites/order";
 
 const prisma = new PrismaClient()
 
@@ -18,7 +19,7 @@ async function main() {
             {
                 id: 'cat-2',
                 name: 'Acompanhamento'
-            },            
+            },
             {
                 id: 'cat-3',
                 name: 'Bebida'
@@ -94,16 +95,41 @@ async function main() {
         data: [
             {
                 id: 'order-1',
-                status: 'Aguardando Pagamento',
+                status: OrderStatus.CONCLUDED,
                 customerId: 'cust-1',
                 price: 100,
             },
             {
                 id: 'order-2',
-                status: 'Em Preparo',
+                status: OrderStatus.PROCESSING,
                 customerId: 'cust-2',
                 price: 50,
             },
+            {
+              id: 'order-3',
+              status: OrderStatus.READY_TO_PICKUP,
+              customerId: 'cust-1',
+                price: 100,
+            },
+            {
+              id: 'order-4',
+              status: OrderStatus.PAYMENT_DUE,
+              customerId: 'cust-1',
+              price: 150,
+            },
+            {
+              id: 'order-5',
+              status: OrderStatus.PLACED,
+              customerId: 'cust-1',
+              price: 110,
+            },
+            {
+              id: 'order-6',
+              status: OrderStatus.PROCESSING,
+              customerId: 'cust-1',
+              price: 200,
+            },
+
         ]
     })
 

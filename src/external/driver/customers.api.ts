@@ -11,28 +11,29 @@ import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { CustomersService } from '../../@core/customer/customers.service';
 import { CreateCustomerDto } from '../../@core/customer/entitites/create-customer.dto';
 import { UpdateCustomerDto } from '../../@core/customer/entitites/update-customer.dto';
+import { CustomersController } from 'src/@core/customer/controller/customers.controller';
 
 @ApiTags('customer')
 @Controller('customers')
 export class CustomersApi{
-  constructor(private readonly customersService: CustomersService) {}
+  constructor(private readonly customersController: CustomersController) {}
 
   @Post()
   @ApiOperation({ summary: 'create a new customer' })
   async create(@Body() createCustomerDto: CreateCustomerDto) {
-    return await this.customersService.create(createCustomerDto);
+    return await this.customersController.create(createCustomerDto);
   }
 
   @Get()
   @ApiOperation({ summary: 'return all customers created' })
   async findAll() {
-    return await this.customersService.findAll();
+    return await this.customersController.findAll();
   }
 
   @Get(':cpf')
   @ApiOperation({ summary: 'return customer data by cpf' })
   async findOne(@Param('cpf') cpf: string) {
-    return await this.customersService.findByCpf(cpf);
+    return await this.customersController.findOne(cpf);
   }
 
   @Patch(':id')
@@ -41,12 +42,12 @@ export class CustomersApi{
     @Param('id') id: string,
     @Body() updateCustomerDto: UpdateCustomerDto,
   ) {
-    return await this.customersService.update(id, updateCustomerDto);
+    return await this.customersController.update(id, updateCustomerDto);
   }
 
   @Delete(':id')
   @ApiOperation({ summary: 'delete the customer' })
   async remove(@Param('id') id: string) {
-    return await this.customersService.remove(id);
+    return await this.customersController.remove(id);
   }
 }

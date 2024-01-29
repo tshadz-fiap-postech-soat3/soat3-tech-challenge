@@ -15,4 +15,5 @@ export abstract class IOrdersService {
   public abstract findAllByStatus(name: string): Promise<Result<OrderEntity[]>>;
   public abstract findAll(): Promise<Result<OrderEntity[]>>;
   public abstract remove(id: string): Promise<void>;
+  public abstract findAllOpen(): Promise<Result<OrderEntity[]>>;
 }

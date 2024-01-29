@@ -9,4 +9,5 @@ export abstract class IOrdersRepository {
   public abstract findAll(): Promise<OrderEntity[]>;
   public abstract findAllByStatus(status: OrderStatus): Promise<OrderEntity[]>;
   public abstract delete(id: string): Promise<void>;
+  public abstract findAllOpen(): Promise<OrderEntity[]>;
 }

@@ -58,4 +58,12 @@ export class OrdersService implements IOrdersService {
   async remove(id: string) {
     return await this.ordersRepository.delete(id);
   }
+
+  async findAllOpen() {
+    const result = await this.ordersRepository.findAllOpen();
+    if (!result) {
+      return new ResultError('order not exist');
+    }
+    return new ResultSuccess(result);
+  }
 }

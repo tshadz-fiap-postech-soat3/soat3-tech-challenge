@@ -47,11 +47,11 @@ export class OrderEntity {
 }
 
 export enum OrderStatus {
-  PAYMENT_DUE = 'Aguardando Pagamento',
-  PLACED = 'Pagamento realizado e aguardando confirmação',
-  CONFIRMED = 'Pedido confirmado e aguardando preparo',
-  PROCESSING = 'Em Preparo',
-  READY_TO_PICKUP = 'Pronto para entrega',
-  CONCLUDED = 'Pedido entregue e finalizado',
-  CANCELLED = 'Pedido Cancelado',
+  PAYMENT_DUE = '5. Aguardando Pagamento',
+  PLACED = '4. Pagamento realizado e aguardando confirmação',
+  CONFIRMED = '3. Pedido confirmado e aguardando preparo',
+  PROCESSING = '2. Em Preparo',
+  READY_TO_PICKUP = '1. Pronto para entrega',
+  CONCLUDED = '6. Pedido entregue e finalizado',
+  CANCELLED = '7. Pedido Cancelado',
 }

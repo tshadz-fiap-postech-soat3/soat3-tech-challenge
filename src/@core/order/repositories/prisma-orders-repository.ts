@@ -37,6 +37,7 @@ export class PrismaOrdersRepository implements IOrdersRepository {
 
   async findAll(): Promise<OrderEntity[]> {
     const result = await this.prisma.order.findMany();
+    console.log(result);
     return result as unknown as OrderEntity[];
   }
 
@@ -55,5 +56,24 @@ export class PrismaOrdersRepository implements IOrdersRepository {
         id: id,
       },
     });
+  }
+
+  async findAllOpen(): Promise<OrderEntity[]> {
+    const result = await this.prisma.order.findMany({
+      where: {
+        NOT: {
+          status: OrderStatus.CONCLUDED,
+        },
+      },
+      orderBy: [
+        {
+          status: 'asc',
+        },
+        {
+          createdAtDate: 'asc',
+        },
+      ],
+    });
+    return result as unknown as OrderEntity[];
   }
 }

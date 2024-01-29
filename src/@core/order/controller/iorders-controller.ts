@@ -15,4 +15,5 @@ export abstract class IOrdersController {
   public abstract findOne(name: string): Promise<ApplicationResult<OrderEntity | string >>;
   public abstract findAll(): Promise<Result<OrderEntity[]>>;
   public abstract remove(id: string): Promise<void>;
+  public abstract findAllOpen(): Promise<ApplicationResult<OrderEntity | string>>;
 }

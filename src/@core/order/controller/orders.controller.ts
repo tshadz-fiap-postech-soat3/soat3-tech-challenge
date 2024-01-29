@@ -16,13 +16,7 @@ export class OrdersController implements IOrdersController {
   ) {}
 
   async create(createOrderDto: CreateOrderDto) {
-    const order = await this.ordersService.findOne(createOrderDto.id);
-    if (order.status !== ResultStatus.ERROR) {
-      return new ApplicationResult(
-        ApplicationResultEvents.ERROR,
-        'Order already exists',
-      );
-    }
+
     const createdOrder = await this.ordersService.create(createOrderDto);
     if (createdOrder.status === ResultStatus.ERROR) {
       return new ApplicationResult(
@@ -77,5 +71,14 @@ export class OrdersController implements IOrdersController {
 
   async remove(id: string) {
     return await this.ordersService.remove(id);
+  }
+
+  async findAllOpen() {
+    const orders = await this.ordersService.findAllOpen();
+
+    return new ApplicationResult(
+      ApplicationResultEvents.SUCCESS,
+      orders as unknown as string,
+    );
   }
 }
