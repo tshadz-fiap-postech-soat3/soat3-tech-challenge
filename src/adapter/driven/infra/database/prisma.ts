@@ -8,8 +8,9 @@ const config = {
     dbPort: configService.get<string>('MYSQL_PORT') ?? 3300,
     dbType: 'mysql',
     dbUser: configService.get<string>('MYSQL_USER') ?? 'root',
+    cloudSqlInstanceName: configService.get<string>('CLOUD_SQL_INSTANCE'),
 };
 
-export const url = `mysql://${config.dbUser}:${config.dbPassword}@${config.dbHost}:${config.dbPort}/${config.dbName}?connect_timeout=3000`;
+export const url = `mysql://${config.dbUser}:${config.dbPassword}@localhost/${config.dbName}?socket=/cloudsql/${config.cloudSqlInstanceName}`;
 
 process.env.DATABASE_URL = url;
