@@ -4,7 +4,7 @@ RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
 WORKDIR /home/node/app
 COPY package*.json ./
-COPY start.sh ./
+COPY start.sh /home/node/app/
 
 RUN chown -R node:node /home/node/app
 
@@ -16,7 +16,7 @@ RUN npx prisma generate
 RUN npm run build
 
 # Permitir que o script de inicialização seja executável
-RUN chmod +x start.sh
+RUN chmod g+x /home/node/app/start.sh
 
 FROM base AS test
 ENTRYPOINT ["npm", "test" ]
@@ -25,4 +25,5 @@ FROM base AS runtime
 
 USER node
 EXPOSE 8080
-CMD ["./start.sh"]
+RUN pwd
+CMD ["/home/node/app/start.sh"]
