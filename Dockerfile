@@ -14,6 +14,9 @@ COPY --chown=node:node . .
 RUN npx prisma generate
 RUN npm run build
 
+# Permitir que o script de inicialização seja executável
+RUN chmod +x start.sh
+
 FROM base AS test
 ENTRYPOINT ["npm", "test" ]
 
