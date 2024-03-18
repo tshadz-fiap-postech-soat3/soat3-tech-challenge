@@ -24,4 +24,4 @@ FROM base AS runtime
 
 USER node
 EXPOSE 8080
-CMD ["npm", "run", "start"]
+CMD ["./start.sh"]
