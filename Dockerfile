@@ -13,8 +13,6 @@ RUN npm install
 COPY --chown=node:node . .
 RUN npx prisma generate
 RUN npm run build
-# Executa as migrações do Prisma
-RUN npx prisma migrate deploy --preview-feature
 
 FROM base AS test
 ENTRYPOINT ["npm", "test" ]
