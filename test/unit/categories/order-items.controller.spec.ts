@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { OrderItemsController } from '../../../src/adapter/driver/order-items.controller';
-import { OrderItemsService } from '../../../src/@core/application/services/order-items.service';
-import { PrismaService } from '../../../src/adapter/driven/infra/database/prisma.service';
-import { IOrderItemsRepository } from '../../../src/@core/ports/iorder-items.repository';
-import { PrismaOrderItemsRepository } from '../../../src/adapter/driven/infra/repositories/prisma-order-items-repository';
+import { OrderItemsController } from '../../../src/external/driver/order-items.api';
+import { OrderItemsService } from '../../../src/@core/order-item/order-items.service';
+import { PrismaService } from '../../../src/external/driven/infra/database/prisma.service';
+import { IOrderItemsRepository } from '../../../src/@core/order-item/repositories/iorder-items.repository';
+import { PrismaOrderItemsRepository } from '../../../src/@core/order-item/repositories/prisma-order-items-repository';
 
 describe('OrderItemsController', () => {
   let controller: OrderItemsController;
@@ -15,9 +15,9 @@ describe('OrderItemsController', () => {
         OrderItemsService,
         {
           provide: IOrderItemsRepository,
-          useClass: PrismaOrderItemsRepository
+          useClass: PrismaOrderItemsRepository,
         },
-        PrismaService
+        PrismaService,
       ],
     }).compile();
 

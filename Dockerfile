@@ -14,11 +14,12 @@ COPY --chown=node:node . .
 RUN npx prisma generate
 RUN npm run build
 
-FROM base AS test 
+FROM base AS test
 ENTRYPOINT ["npm", "test" ]
 
 FROM base AS runtime
 
 USER node
 EXPOSE 8080
+
 CMD ["npm", "run", "start"]
