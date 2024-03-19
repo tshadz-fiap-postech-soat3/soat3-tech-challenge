@@ -29,6 +29,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 * Nest Js
 * Minikube
 * k9s
+* Terraform
+* Cloud run
 
 <h2 id="running"> Como rodar a aplicação </h2>
 
@@ -105,3 +107,41 @@ $  kubectl port-forward deployment/fast-food-deployment 8080:8080
 4. Post Order Item (usando os IDs dos produtos e do pedido que foi criado)
 5. Patch Payment (o pagamento será automaticamente realizado)
 
+## Terraform 
+
+### Pré-requisitos
+Terraform instalado localmente. [Download Terraform](https://developer.hashicorp.com/terraform/install)
+
+Conta no provedor de nuvem e as credenciais configuradas localmente. Consulte a documentação do provedor para obter mais detalhes.
+
+### Configuração
+
+Inicialize o diretório do Terraform:
+
+```bash
+terraform init
+```
+
+Personalize as variáveis do Terraform conforme necessário no arquivo terraform.tfvars.
+
+### Uso
+Visualize as mudanças propostas pelo Terraform:
+
+```bash
+terraform plan
+```
+
+Aplique as mudanças:
+
+```bash
+terraform apply
+```
+
+Após a conclusão, verifique se a infraestrutura foi criada corretamente no provedor de nuvem.
+
+### Limpeza
+Para evitar custos indesejados, você pode destruir a infraestrutura após o uso:
+
+```bash
+terraform destroy
+```
